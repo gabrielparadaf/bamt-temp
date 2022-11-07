@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generalbytes.batm.server.extensions.extra.watchlists.ca.ParsedSanctionsTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:28" hostname="gabriel-parada" time="0.003">
+  <properties/>
+  <testcase name="testSearchNotFound" classname="com.generalbytes.batm.server.extensions.extra.watchlists.ca.ParsedSanctionsTest" time="0.0"/>
+  <testcase name="testSearchAliasMatchNoFirstName" classname="com.generalbytes.batm.server.extensions.extra.watchlists.ca.ParsedSanctionsTest" time="0.001"/>
+  <testcase name="testSearchAliasMatch" classname="com.generalbytes.batm.server.extensions.extra.watchlists.ca.ParsedSanctionsTest" time="0.0"/>
+  <testcase name="testSearchLastNameMatch" classname="com.generalbytes.batm.server.extensions.extra.watchlists.ca.ParsedSanctionsTest" time="0.0"/>
+  <testcase name="testSearchLastNameMatchNoFirstName" classname="com.generalbytes.batm.server.extensions.extra.watchlists.ca.ParsedSanctionsTest" time="0.0"/>
+  <testcase name="testSearchOk" classname="com.generalbytes.batm.server.extensions.extra.watchlists.ca.ParsedSanctionsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.binance.BinanceExchangeRoundingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.002">
+  <properties/>
+  <testcase name="testGetAmountRoundedToMinStep" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.binance.BinanceExchangeRoundingTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

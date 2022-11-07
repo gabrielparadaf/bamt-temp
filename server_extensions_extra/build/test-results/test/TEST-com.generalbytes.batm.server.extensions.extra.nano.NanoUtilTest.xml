@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generalbytes.batm.server.extensions.extra.nano.NanoUtilTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:28" hostname="gabriel-parada" time="0.008">
+  <properties/>
+  <testcase name="testParseAddress" classname="com.generalbytes.batm.server.extensions.extra.nano.NanoUtilTest" time="0.007"/>
+  <testcase name="testAmountToRaw" classname="com.generalbytes.batm.server.extensions.extra.nano.NanoUtilTest" time="0.0"/>
+  <testcase name="testInvalidValues" classname="com.generalbytes.batm.server.extensions.extra.nano.NanoUtilTest" time="0.0"/>
+  <testcase name="testAmountFromRaw" classname="com.generalbytes.batm.server.extensions.extra.nano.NanoUtilTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

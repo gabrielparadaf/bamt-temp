@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.052">
+  <properties/>
+  <testcase name="convert[0]" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressTest" time="0.015"/>
+  <testcase name="convert[1]" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressTest" time="0.007"/>
+  <testcase name="convert[2]" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressTest" time="0.005"/>
+  <testcase name="convert[3]" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressTest" time="0.007"/>
+  <testcase name="convert[4]" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressTest" time="0.008"/>
+  <testcase name="convert[5]" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

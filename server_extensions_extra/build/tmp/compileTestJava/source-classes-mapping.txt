@@ -1,0 +1,71 @@
+com/generalbytes/batm/server/extensions/extra/common/RPCBlockchainWatcherTest.java
+ com.generalbytes.batm.server.extensions.extra.common.RPCBlockchainWatcherTest
+ com.generalbytes.batm.server.extensions.extra.common.RPCBlockchainWatcherTest$1
+com/generalbytes/batm/server/extensions/extra/cardano/CardanoAddressValidatorTest.java
+ com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidatorTest
+com/generalbytes/batm/server/extensions/BatmExtensionsXmlTest.java
+ com.generalbytes.batm.server.extensions.BatmExtensionsXmlTest
+com/generalbytes/batm/server/extensions/extra/nano/dev/TestPaymentSupport.java
+ com.generalbytes.batm.server.extensions.extra.nano.dev.TestPaymentSupport
+ com.generalbytes.batm.server.extensions.extra.nano.dev.TestPaymentSupport$1
+com/generalbytes/batm/server/extensions/extra/syscoin/SyscoinAddressValidatorTest.java
+ com.generalbytes.batm.server.extensions.extra.syscoin.SyscoinAddressValidatorTest
+com/generalbytes/batm/server/extensions/extra/RateSourceTest.java
+ com.generalbytes.batm.server.extensions.extra.RateSourceTest
+com/generalbytes/batm/server/extensions/extra/elrond/ElrondAddressValidatorTest.java
+ com.generalbytes.batm.server.extensions.extra.elrond.ElrondAddressValidatorTest
+com/generalbytes/batm/server/extensions/extra/bitcoin/exchanges/binance/BinanceExchangeTest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.binance.BinanceExchangeTest
+com/generalbytes/batm/server/extensions/extra/lightningbitcoin/wallets/lnd/LndWalletTest.java
+ com.generalbytes.batm.server.extensions.extra.lightningbitcoin.wallets.lnd.LndWalletTest
+com/generalbytes/batm/server/extensions/extra/watchlists/eu/EUSanctionsListTest.java
+ com.generalbytes.batm.server.extensions.extra.watchlists.eu.EUSanctionsListTest
+com/generalbytes/batm/server/extensions/extra/bitcoin/exchanges/bitpandapro/BitpandaProRateSourceTest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest
+com/generalbytes/batm/server/extensions/extra/bitcoin/exchanges/bitpandapro/BitpandaProExchangeTest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest
+com/generalbytes/batm/server/extensions/extra/bitcoin/BitcoinExtensionTest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest
+com/generalbytes/batm/server/extensions/extra/watchlists/ca/CaWatchListTest.java
+ com.generalbytes.batm.server.extensions.extra.watchlists.ca.CaWatchListTest
+com/generalbytes/batm/server/extensions/extra/nano/dev/TestWebSocket.java
+ com.generalbytes.batm.server.extensions.extra.nano.dev.TestWebSocket
+com/generalbytes/batm/server/extensions/extra/ExchangeTest.java
+ com.generalbytes.batm.server.extensions.extra.ExchangeTest
+com/generalbytes/batm/server/extensions/extra/watchlists/ofac/OFACWatchListTest.java
+ com.generalbytes.batm.server.extensions.extra.watchlists.ofac.OFACWatchListTest
+com/generalbytes/batm/server/extensions/extra/nano/NanoUtilTest.java
+ com.generalbytes.batm.server.extensions.extra.nano.NanoUtilTest
+com/generalbytes/batm/server/extensions/extra/WalletTest.java
+ com.generalbytes.batm.server.extensions.extra.WalletTest
+com/generalbytes/batm/server/extensions/extra/lightningbitcoin/wallets/eclair/EclairWalletTest.java
+ com.generalbytes.batm.server.extensions.extra.lightningbitcoin.wallets.eclair.EclairWalletTest
+com/generalbytes/batm/server/extensions/extra/dash/sources/coinmarketcap/CoinmarketcapRateSourceTest.java
+ com.generalbytes.batm.server.extensions.extra.dash.sources.coinmarketcap.CoinmarketcapRateSourceTest
+com/generalbytes/batm/server/extensions/extra/nano/NanoAddressValidatorTest.java
+ com.generalbytes.batm.server.extensions.extra.nano.NanoAddressValidatorTest
+com/generalbytes/batm/server/extensions/extra/bitcoincash/BitcoinCashAddressTest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressTest
+com/generalbytes/batm/server/extensions/extra/litecoin/LitecoinAddressValidatorTest.java
+ com.generalbytes.batm.server.extensions.extra.litecoin.LitecoinAddressValidatorTest
+com/generalbytes/batm/server/extensions/extra/bitcoin/wallets/bitgo/v2/BitgoAPITest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoAPITest
+com/generalbytes/batm/server/extensions/extra/watchlists/ca/ParsedSanctionsTest.java
+ com.generalbytes.batm.server.extensions.extra.watchlists.ca.ParsedSanctionsTest
+com/generalbytes/batm/server/extensions/extra/dash/sources/coinmarketcap/CoinmarketcapAPITest.java
+ com.generalbytes.batm.server.extensions.extra.dash.sources.coinmarketcap.CoinmarketcapAPITest
+com/generalbytes/batm/server/extensions/extra/bitcoin/wallets/bitgo/v2/BitgoWalletTest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoWalletTest
+com/generalbytes/batm/server/extensions/coinutil/BCHUtilTest.java
+ com.generalbytes.batm.server.extensions.coinutil.BCHUtilTest
+com/generalbytes/batm/server/extensions/extra/nano/dev/TestNodeWallet.java
+ com.generalbytes.batm.server.extensions.extra.nano.dev.TestNodeWallet
+com/generalbytes/batm/server/extensions/extra/dash/sources/coinmarketcap/TestCoinmarketcapAPI.java
+ com.generalbytes.batm.server.extensions.extra.dash.sources.coinmarketcap.TestCoinmarketcapAPI
+com/generalbytes/batm/server/extensions/extra/bitcoin/exchanges/bitbuy/BitbuyDigestTest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitbuy.BitbuyDigestTest
+ com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitbuy.BitbuyDigestTest$TestApi
+com/generalbytes/batm/server/extensions/extra/bitcoin/exchanges/binance/BinanceExchangeRoundingTest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.binance.BinanceExchangeRoundingTest
+com/generalbytes/batm/server/extensions/extra/bitcoincash/BitcoinCashAddressInvalidTest.java
+ com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest

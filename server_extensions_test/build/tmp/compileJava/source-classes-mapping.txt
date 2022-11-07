@@ -1,0 +1,2 @@
+com/generalbytes/batm/server/extensions/test/Tester.java
+ com.generalbytes.batm.server.extensions.test.Tester

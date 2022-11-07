@@ -1,0 +1,8 @@
+com/generalbytes/batm/common/currencies/CryptoCurrency.java
+ com.generalbytes.batm.common.currencies.CryptoCurrency
+com/generalbytes/batm/common/currencies/FiatCurrency.java
+ com.generalbytes.batm.common.currencies.FiatCurrency
+com/generalbytes/batm/common/currencies/Erc20Token.java
+ com.generalbytes.batm.common.currencies.Erc20Token
+com/generalbytes/batm/common/currencies/SlpToken.java
+ com.generalbytes.batm.common.currencies.SlpToken

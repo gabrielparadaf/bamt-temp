@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest" tests="8" skipped="8" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.003">
+  <properties/>
+  <testcase name="shouldFetchLastExchangeRate" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldSupportAllConfiguredPairs" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldFailOnInvalidInstrument" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldFetchCryptoCurrencies" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldYieldConfiguredPreferredFiatCurrency" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldCalculateReasonableBuyAndSellPricesForOneBitcoin" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldCalculateReasonableBuyAndSellRatesForBitcoin" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldFetchFiatCurrencies" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProRateSourceTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

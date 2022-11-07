@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" tests="11" skipped="11" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.002">
+  <properties/>
+  <testcase name="shouldGetBitcoinDepositAddress" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldFetchCryptoBalances" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldFetchCryptoCurrencies" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldWithdrawBitcoin" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldYieldConfiguredPreferredFiatCurrency" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldPurchaseCoinsAdvanced" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldPurchaseCoins" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldFetchFiatBalances" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldSellCoins" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldSellCoinsAdvanced" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="shouldFetchFiatCurrencies" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

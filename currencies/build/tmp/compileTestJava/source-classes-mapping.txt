@@ -1,0 +1,4 @@
+com/generalbytes/batm/common/currencies/FiatCurrencyTest.java
+ com.generalbytes.batm.common.currencies.FiatCurrencyTest
+com/generalbytes/batm/common/currencies/CryptoCurrencyTest.java
+ com.generalbytes.batm.common.currencies.CryptoCurrencyTest

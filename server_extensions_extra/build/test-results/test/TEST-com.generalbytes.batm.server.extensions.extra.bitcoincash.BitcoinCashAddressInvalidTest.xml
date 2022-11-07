@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.019">
+  <properties/>
+  <testcase name="invalidInput0" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.001"/>
+  <testcase name="invalidInput1" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.0"/>
+  <testcase name="invalidInput3" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.0"/>
+  <testcase name="invalidInputColPppp" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.003"/>
+  <testcase name="invalidInputColQqqq" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.001"/>
+  <testcase name="emptyInput" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.0"/>
+  <testcase name="invalidInputCol" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.0"/>
+  <testcase name="invalidInputSlpPppp" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.002"/>
+  <testcase name="invalidInputSlpQqqq" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.001"/>
+  <testcase name="invalidInput1111" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.0"/>
+  <testcase name="invalidInput3333" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.001"/>
+  <testcase name="invalidInputPppp" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.004"/>
+  <testcase name="invalidInputQqqq" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.004"/>
+  <testcase name="invalidInputSlpE" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.0"/>
+  <testcase name="nullInput" classname="com.generalbytes.batm.server.extensions.extra.bitcoincash.BitcoinCashAddressInvalidTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

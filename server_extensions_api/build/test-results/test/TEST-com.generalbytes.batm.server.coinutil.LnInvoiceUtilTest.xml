@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:24" hostname="gabriel-parada" time="0.006">
+  <properties/>
+  <testcase name="zeroAmount" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.001"/>
+  <testcase name="invalidMultiplier" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.001"/>
+  <testcase name="lnbc11" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="findNull" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="lnbc5555550n" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="testnetPrefix" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="find" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="invalidChecksum" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.001"/>
+  <testcase name="lnbc20m" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="lnbc2500u" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="malformedBech32" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="mixedCase" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="lnbc9678785340p" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.0"/>
+  <testcase name="invalidPrecision" classname="com.generalbytes.batm.server.coinutil.LnInvoiceUtilTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
