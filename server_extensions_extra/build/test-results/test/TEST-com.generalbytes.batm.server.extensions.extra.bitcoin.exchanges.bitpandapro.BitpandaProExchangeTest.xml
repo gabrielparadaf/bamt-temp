@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" tests="11" skipped="11" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.002">
+<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" tests="11" skipped="11" failures="0" errors="0" timestamp="2022-11-22T17:02:33" hostname="gabriel-parada" time="0.001">
   <properties/>
   <testcase name="shouldGetBitcoinDepositAddress" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.exchanges.bitpandapro.BitpandaProExchangeTest" time="0.0">
     <skipped/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.021">
+<testsuite name="com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-22T17:02:33" hostname="gabriel-parada" time="0.035">
   <properties/>
-  <testcase name="isAddressValid" classname="com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidatorTest" time="0.021"/>
-  <system-out><![CDATA[ERROR 2022-10-19 12:20:29.267 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
+  <testcase name="isAddressValid" classname="com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidatorTest" time="0.035"/>
+  <system-out><![CDATA[ERROR 2022-11-22 11:02:33.307 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
 com.generalbytes.batm.server.coinutil.AddressFormatException: Invalid character: @, pos: 58
 	at com.generalbytes.batm.server.coinutil.Bech32.decodeUnlimitedLength(Bech32.java:218)
 	at com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidator.isAddressValid(CardanoAddressValidator.java:34)
@@ -55,7 +55,7 @@ com.generalbytes.batm.server.coinutil.AddressFormatException: Invalid character:
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.lang.Thread.run(Thread.java:750)
-ERROR 2022-10-19 12:20:29.270 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
+ERROR 2022-11-22 11:02:33.314 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
 com.generalbytes.batm.server.coinutil.AddressFormatException: Invalid character: @, pos: 67
 	at com.generalbytes.batm.server.coinutil.Bech32.decodeUnlimitedLength(Bech32.java:218)
 	at com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidator.isAddressValid(CardanoAddressValidator.java:34)
@@ -108,7 +108,7 @@ com.generalbytes.batm.server.coinutil.AddressFormatException: Invalid character:
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.lang.Thread.run(Thread.java:750)
-ERROR 2022-10-19 12:20:29.274 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
+ERROR 2022-11-22 11:02:33.321 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
 com.generalbytes.batm.server.coinutil.AddressFormatException: Invalid character: @, pos: 103
 	at com.generalbytes.batm.server.coinutil.Bech32.decodeUnlimitedLength(Bech32.java:218)
 	at com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidator.isAddressValid(CardanoAddressValidator.java:34)
@@ -161,7 +161,7 @@ com.generalbytes.batm.server.coinutil.AddressFormatException: Invalid character:
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.lang.Thread.run(Thread.java:750)
-ERROR 2022-10-19 12:20:29.277 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
+ERROR 2022-11-22 11:02:33.327 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
 com.generalbytes.batm.server.coinutil.AddressFormatException: Illegal character @ at 59
 	at com.generalbytes.batm.server.coinutil.Base58.decode(Base58.java:113)
 	at com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidator.isAddressValid(CardanoAddressValidator.java:41)
@@ -214,7 +214,7 @@ com.generalbytes.batm.server.coinutil.AddressFormatException: Illegal character 
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.lang.Thread.run(Thread.java:750)
-ERROR 2022-10-19 12:20:29.280 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
+ERROR 2022-11-22 11:02:33.331 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
 com.generalbytes.batm.server.coinutil.AddressFormatException: Illegal character @ at 59
 	at com.generalbytes.batm.server.coinutil.Base58.decode(Base58.java:113)
 	at com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidator.isAddressValid(CardanoAddressValidator.java:41)
@@ -267,7 +267,7 @@ com.generalbytes.batm.server.coinutil.AddressFormatException: Illegal character 
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.lang.Thread.run(Thread.java:750)
-ERROR 2022-10-19 12:20:29.282 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
+ERROR 2022-11-22 11:02:33.336 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
 com.generalbytes.batm.server.coinutil.AddressFormatException: Illegal character @ at 104
 	at com.generalbytes.batm.server.coinutil.Base58.decode(Base58.java:113)
 	at com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidator.isAddressValid(CardanoAddressValidator.java:41)
@@ -320,7 +320,7 @@ com.generalbytes.batm.server.coinutil.AddressFormatException: Illegal character 
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.lang.Thread.run(Thread.java:750)
-ERROR 2022-10-19 12:20:29.285 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
+ERROR 2022-11-22 11:02:33.339 [Test worker - b.m.e.CardanoAddressValidator] - Cannot decode address
 com.generalbytes.batm.server.coinutil.AddressFormatException: Illegal character @ at 104
 	at com.generalbytes.batm.server.coinutil.Base58.decode(Base58.java:113)
 	at com.generalbytes.batm.server.extensions.extra.cardano.CardanoAddressValidator.isAddressValid(CardanoAddressValidator.java:41)

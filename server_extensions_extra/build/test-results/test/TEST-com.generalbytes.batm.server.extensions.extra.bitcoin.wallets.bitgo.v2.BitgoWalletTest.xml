@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoWalletTest" tests="6" skipped="5" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.058">
+<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoWalletTest" tests="6" skipped="5" failures="0" errors="0" timestamp="2022-11-22T17:02:33" hostname="gabriel-parada" time="0.061">
   <properties/>
   <testcase name="getCryptAddressTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoWalletTest" time="0.0">
     <skipped/>
@@ -16,15 +16,15 @@
   <testcase name="sendManyTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoWalletTest" time="0.0">
     <skipped/>
   </testcase>
-  <testcase name="convertBalance" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoWalletTest" time="0.056"/>
-  <system-out><![CDATA[DEBUG 2022-10-19 12:20:28.678 [Test worker - si.mazi.rescu.Config] - Configuration from rescu.properties:
-DEBUG 2022-10-19 12:20:28.681 [Test worker - si.mazi.rescu.Config] - httpConnTimeout = 30000
-DEBUG 2022-10-19 12:20:28.683 [Test worker - si.mazi.rescu.Config] - httpReadTimeout = 30000
-DEBUG 2022-10-19 12:20:28.683 [Test worker - si.mazi.rescu.Config] - proxyHost = null
-DEBUG 2022-10-19 12:20:28.683 [Test worker - si.mazi.rescu.Config] - proxyPort = null
-DEBUG 2022-10-19 12:20:28.683 [Test worker - si.mazi.rescu.Config] - proxyType = null
-DEBUG 2022-10-19 12:20:28.683 [Test worker - si.mazi.rescu.Config] - ignoreHttpErrorCodes = false
-ERROR 2022-10-19 12:20:29.060 [Test worker - c.g.b.s.e.e.b.w.bitgo.v2.BitgoWallet] - unknown not supported
+  <testcase name="convertBalance" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoWalletTest" time="0.061"/>
+  <system-out><![CDATA[DEBUG 2022-11-22 11:02:32.756 [Test worker - si.mazi.rescu.Config] - Configuration from rescu.properties:
+DEBUG 2022-11-22 11:02:32.760 [Test worker - si.mazi.rescu.Config] - httpConnTimeout = 30000
+DEBUG 2022-11-22 11:02:32.761 [Test worker - si.mazi.rescu.Config] - httpReadTimeout = 30000
+DEBUG 2022-11-22 11:02:32.761 [Test worker - si.mazi.rescu.Config] - proxyHost = null
+DEBUG 2022-11-22 11:02:32.761 [Test worker - si.mazi.rescu.Config] - proxyPort = null
+DEBUG 2022-11-22 11:02:32.762 [Test worker - si.mazi.rescu.Config] - proxyType = null
+DEBUG 2022-11-22 11:02:32.762 [Test worker - si.mazi.rescu.Config] - ignoreHttpErrorCodes = false
+ERROR 2022-11-22 11:02:33.104 [Test worker - c.g.b.s.e.e.b.w.bitgo.v2.BitgoWallet] - unknown not supported
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

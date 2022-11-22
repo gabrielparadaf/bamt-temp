@@ -82,6 +82,7 @@ public enum CryptoCurrency {
     LINDA("Linda"),
     LSK("Lisk"),
     LTC("Litecoin"),
+    MCOIN("Maticoin"),
     MAX("Maxcoin"),
     MEC("Megacoin"),
     MKR("Maker"),
@@ -132,8 +133,6 @@ public enum CryptoCurrency {
     TLTC("test LTC"),
     TRMG("test RMG"),
     TXRP("test XRP"),
-    
-    MATICOIN("MATICOIN"),
     ;
 
     private static Map<String, CryptoCurrency> cryptoCurrenciesUpperCase = new HashMap<>();

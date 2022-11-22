@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.012">
+<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-11-22T17:02:33" hostname="gabriel-parada" time="0.014">
   <properties/>
-  <testcase name="bitgoNoProtocolTokenTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.005"/>
+  <testcase name="bitgoNoProtocolTokenTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.004"/>
   <testcase name="bitgoFullTokenTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.001"/>
   <testcase name="bitgoWalletTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.001"/>
-  <testcase name="bitgoNoPortTokenTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.001"/>
-  <testcase name="bitgoHttpsTokenTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.001"/>
+  <testcase name="bitgoNoPortTokenTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.002"/>
+  <testcase name="bitgoHttpsTokenTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.002"/>
   <testcase name="bitgoErrorTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.0"/>
-  <testcase name="testCreateFromExtension" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.002"/>
-  <system-out><![CDATA[INFO  2022-10-19 12:20:29.149 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = bitgo, protocol = , host = localhost, port = 3080, fullHost = localhost, token = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21, address = 5b20e3a9266bbe80095757489d84a6bb, passphrase = Vranec8586, next = 3080
-INFO  2022-10-19 12:20:29.153 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = http://localhost:3080/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
-INFO  2022-10-19 12:20:29.154 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = bitgo, protocol = http, host = //localhost, port = 3080, fullHost = http://localhost, token = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21, address = 5b20e3a9266bbe80095757489d84a6bb, passphrase = Vranec8586, next = 3080
-INFO  2022-10-19 12:20:29.155 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = http://localhost:3080/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
-INFO  2022-10-19 12:20:29.156 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = http://localhost:3080/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
-INFO  2022-10-19 12:20:29.156 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = bitgo, protocol = http, host = //localhost, port = , fullHost = http://localhost, token = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21, address = 5b20e3a9266bbe80095757489d84a6bb, passphrase = Vranec8586, next = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21
-INFO  2022-10-19 12:20:29.157 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = http://localhost/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
-INFO  2022-10-19 12:20:29.158 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = bitgo, protocol = https, host = //localhost, port = 3080, fullHost = https://localhost, token = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21, address = 5b20e3a9266bbe80095757489d84a6bb, passphrase = Vranec8586, next = 3080
-INFO  2022-10-19 12:20:29.158 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = https://localhost:3080/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
+  <testcase name="testCreateFromExtension" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.BitcoinExtensionTest" time="0.004"/>
+  <system-out><![CDATA[INFO  2022-11-22 11:02:33.199 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = bitgo, protocol = , host = localhost, port = 3080, fullHost = localhost, token = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21, address = 5b20e3a9266bbe80095757489d84a6bb, passphrase = Vranec8586, next = 3080
+INFO  2022-11-22 11:02:33.202 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = http://localhost:3080/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
+INFO  2022-11-22 11:02:33.202 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = bitgo, protocol = http, host = //localhost, port = 3080, fullHost = http://localhost, token = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21, address = 5b20e3a9266bbe80095757489d84a6bb, passphrase = Vranec8586, next = 3080
+INFO  2022-11-22 11:02:33.203 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = http://localhost:3080/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
+INFO  2022-11-22 11:02:33.204 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = http://localhost:3080/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
+INFO  2022-11-22 11:02:33.204 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = bitgo, protocol = http, host = //localhost, port = , fullHost = http://localhost, token = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21, address = 5b20e3a9266bbe80095757489d84a6bb, passphrase = Vranec8586, next = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21
+INFO  2022-11-22 11:02:33.206 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = http://localhost/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
+INFO  2022-11-22 11:02:33.206 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = bitgo, protocol = https, host = //localhost, port = 3080, fullHost = https://localhost, token = v2x8d5e9e46379dc328b2039a400a12b04ea986689b38107fd84cd339bc89e3fb21, address = 5b20e3a9266bbe80095757489d84a6bb, passphrase = Vranec8586, next = 3080
+INFO  2022-11-22 11:02:33.207 [Test worker - c.g.b.s.e.e.b.BitcoinExtensionTest] - wallet = BitgoWalletV2[url = https://localhost:3080/, wallet_id = 5b20e3a9266bbe80095757489d84a6bb]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

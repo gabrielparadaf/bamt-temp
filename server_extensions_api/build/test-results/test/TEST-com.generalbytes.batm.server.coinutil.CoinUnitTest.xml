@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.coinutil.CoinUnitTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:24" hostname="gabriel-parada" time="0.003">
+<testsuite name="com.generalbytes.batm.server.coinutil.CoinUnitTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2022-11-22T17:00:25" hostname="gabriel-parada" time="0.005">
   <properties/>
-  <testcase name="bitcoinToMSatNull" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
+  <testcase name="bitcoinToMSatNull" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.001"/>
   <testcase name="bitcoinToMSatZero" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="bitcoinToSat" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
-  <testcase name="bitcoinToMSat" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.001"/>
-  <testcase name="satToBitcoin" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
+  <testcase name="bitcoinToMSat" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
+  <testcase name="satToBitcoin" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.001"/>
   <testcase name="bitcoinToSatNull" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="bitcoinToSatZero" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="bitcoinToMSatRound1" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
-  <testcase name="bitcoinToMSatRound9" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
+  <testcase name="bitcoinToMSatRound9" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.001"/>
   <testcase name="satToBitcoinNull" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="satToBitcoinZero" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="mSatToBitcoin123" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="mSatToBitcoinNull" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
-  <testcase name="mSatToBitcoinZero" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
+  <testcase name="mSatToBitcoinZero" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.001"/>
   <testcase name="bitcoinToSatRound1" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="bitcoinToSatRound9" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
-  <testcase name="bitcoinToSat123" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.001"/>
+  <testcase name="bitcoinToSat123" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="satToBitcoin123" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="mSatToBitcoin" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>
   <testcase name="bitcoinToMSat123" classname="com.generalbytes.batm.server.coinutil.CoinUnitTest" time="0.0"/>

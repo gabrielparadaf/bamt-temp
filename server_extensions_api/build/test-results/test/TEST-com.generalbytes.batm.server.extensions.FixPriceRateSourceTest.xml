@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.FixPriceRateSourceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:24" hostname="gabriel-parada" time="0.056">
+<testsuite name="com.generalbytes.batm.server.extensions.FixPriceRateSourceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-22T17:00:25" hostname="gabriel-parada" time="0.12">
   <properties/>
-  <testcase name="testRateIsValid" classname="com.generalbytes.batm.server.extensions.FixPriceRateSourceTest" time="0.056"/>
+  <testcase name="testRateIsValid" classname="com.generalbytes.batm.server.extensions.FixPriceRateSourceTest" time="0.12"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.extra.dash.sources.coinmarketcap.CoinmarketcapRateSourceTest" tests="2" skipped="2" failures="0" errors="0" timestamp="2022-10-19T18:20:27" hostname="gabriel-parada" time="0.0">
+<testsuite name="com.generalbytes.batm.server.extensions.extra.dash.sources.coinmarketcap.CoinmarketcapRateSourceTest" tests="2" skipped="2" failures="0" errors="0" timestamp="2022-11-22T17:02:32" hostname="gabriel-parada" time="0.0">
   <properties/>
   <testcase name="nullApi" classname="com.generalbytes.batm.server.extensions.extra.dash.sources.coinmarketcap.CoinmarketcapRateSourceTest" time="0.0">
     <skipped/>

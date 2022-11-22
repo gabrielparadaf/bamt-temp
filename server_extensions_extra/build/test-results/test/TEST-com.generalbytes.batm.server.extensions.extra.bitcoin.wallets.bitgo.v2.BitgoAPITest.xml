@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoAPITest" tests="6" skipped="6" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.001">
+<testsuite name="com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoAPITest" tests="6" skipped="6" failures="0" errors="0" timestamp="2022-11-22T17:02:33" hostname="gabriel-parada" time="0.0">
   <properties/>
   <testcase name="getWalletTest" classname="com.generalbytes.batm.server.extensions.extra.bitcoin.wallets.bitgo.v2.BitgoAPITest" time="0.0">
     <skipped/>

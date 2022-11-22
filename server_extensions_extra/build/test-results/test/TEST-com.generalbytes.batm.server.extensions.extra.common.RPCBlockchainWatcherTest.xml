@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.extra.common.RPCBlockchainWatcherTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2022-10-19T18:20:28" hostname="gabriel-parada" time="0.001">
+<testsuite name="com.generalbytes.batm.server.extensions.extra.common.RPCBlockchainWatcherTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2022-11-22T17:02:32" hostname="gabriel-parada" time="0.0">
   <properties/>
-  <testcase name="test" classname="com.generalbytes.batm.server.extensions.extra.common.RPCBlockchainWatcherTest" time="0.001">
+  <testcase name="test" classname="com.generalbytes.batm.server.extensions.extra.common.RPCBlockchainWatcherTest" time="0.0">
     <skipped/>
   </testcase>
   <system-out><![CDATA[]]></system-out>

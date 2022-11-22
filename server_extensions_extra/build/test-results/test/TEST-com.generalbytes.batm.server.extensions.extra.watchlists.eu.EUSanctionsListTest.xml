@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.extra.watchlists.eu.EUSanctionsListTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:28" hostname="gabriel-parada" time="0.065">
+<testsuite name="com.generalbytes.batm.server.extensions.extra.watchlists.eu.EUSanctionsListTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-22T17:02:32" hostname="gabriel-parada" time="0.056">
   <properties/>
-  <testcase name="testWatchlistPositive" classname="com.generalbytes.batm.server.extensions.extra.watchlists.eu.EUSanctionsListTest" time="0.065"/>
+  <testcase name="testWatchlistPositive" classname="com.generalbytes.batm.server.extensions.extra.watchlists.eu.EUSanctionsListTest" time="0.056"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

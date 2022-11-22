@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.extensions.coinutil.BCHUtilTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-19T18:20:29" hostname="gabriel-parada" time="0.303">
+<testsuite name="com.generalbytes.batm.server.extensions.coinutil.BCHUtilTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-22T17:02:33" hostname="gabriel-parada" time="0.327">
   <properties/>
-  <testcase name="convertBech32To3" classname="com.generalbytes.batm.server.extensions.coinutil.BCHUtilTest" time="0.303"/>
+  <testcase name="convertBech32To3" classname="com.generalbytes.batm.server.extensions.coinutil.BCHUtilTest" time="0.327"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

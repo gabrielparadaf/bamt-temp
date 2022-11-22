@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.generalbytes.batm.server.coinutil.Bech32Test" tests="38" skipped="5" failures="0" errors="0" timestamp="2022-10-19T18:20:24" hostname="gabriel-parada" time="0.026">
+<testsuite name="com.generalbytes.batm.server.coinutil.Bech32Test" tests="38" skipped="5" failures="0" errors="0" timestamp="2022-11-22T17:00:25" hostname="gabriel-parada" time="0.024">
   <properties/>
-  <testcase name="encodeLnurlEmptyHrp" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
+  <testcase name="encodeLnurlEmptyHrp" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
   <testcase name="decodeInvalidAddr01" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0">
     <skipped/>
   </testcase>
   <testcase name="decodeInvalidAddr02" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
-  <testcase name="decodeInvalidAddr03" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001">
+  <testcase name="decodeInvalidAddr03" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0">
     <skipped/>
   </testcase>
   <testcase name="decodeInvalidAddr04" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0">
@@ -15,14 +15,14 @@
   <testcase name="decodeInvalidAddr05" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0">
     <skipped/>
   </testcase>
-  <testcase name="decodeInvalidAddr06" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001">
+  <testcase name="decodeInvalidAddr06" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0">
     <skipped/>
   </testcase>
   <testcase name="decodeInvalidAddr07" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeInvalidAddr08" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
   <testcase name="decodeInvalidAddr09" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeInvalidAddr10" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
-  <testcase name="decodeLnurlNull" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
+  <testcase name="decodeLnurlNull" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeValidAddresses1" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeValidAddresses2" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
   <testcase name="decodeValidAddresses3" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
@@ -33,20 +33,20 @@
   <testcase name="encodeLnurlEmpty" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeLnurlWrongHRP" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
   <testcase name="encodeLnurlNull" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
-  <testcase name="decodeLnurl" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
+  <testcase name="decodeLnurl" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
   <testcase name="decodeInvalid01" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeInvalid02" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeInvalid03" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
-  <testcase name="decodeInvalid04" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
+  <testcase name="decodeInvalid04" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
   <testcase name="decodeInvalid05" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeInvalid06" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeInvalid07" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
-  <testcase name="decodeInvalid08" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
-  <testcase name="decodeInvalid09" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
+  <testcase name="decodeInvalid08" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
+  <testcase name="decodeInvalid09" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <testcase name="decodeInvalid10" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
-  <testcase name="decodeInvalid11" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
-  <testcase name="decodeInvalid12" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
-  <testcase name="encodeDecodeRandom" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.012"/>
+  <testcase name="decodeInvalid11" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
+  <testcase name="decodeInvalid12" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
+  <testcase name="encodeDecodeRandom" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.013"/>
   <testcase name="encodeLnurlNullHrp" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.001"/>
   <testcase name="encodeLnurl" classname="com.generalbytes.batm.server.coinutil.Bech32Test" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
