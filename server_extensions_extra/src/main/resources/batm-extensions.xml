@@ -2425,8 +2425,6 @@
             <sendtomany supported="true"/>
             <param name="projectId" />
             <param name="mnemonic" />
-            <param name="gaslimit" />
-            <param name="gasPriceMultiplier" />
             <cryptocurrency>MCOIN</cryptocurrency>
         </wallet>
         <ratesource prefix="maticoinfix" name ="Fix Price" >
