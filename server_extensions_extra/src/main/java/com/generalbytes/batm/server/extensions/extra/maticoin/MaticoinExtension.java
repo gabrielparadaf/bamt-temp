@@ -13,7 +13,7 @@ import com.generalbytes.batm.server.extensions.ICryptoAddressValidator;
 import com.generalbytes.batm.server.extensions.IRateSource;
 import com.generalbytes.batm.server.extensions.IWallet;
 import com.generalbytes.batm.server.extensions.extra.ethereum.InfuraWallet;
-//import com.generalbytes.batm.server.extensions.extra.ethereum.erc20.ERC20Wallet;
+import com.generalbytes.batm.server.extensions.extra.ethereum.erc20.ERC20Wallet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,7 +66,7 @@ public class MaticoinExtension extends AbstractExtension {
                     }
 
                     if (projectId != null && passwordOrMnemonic != null) {
-                        return new Infura(projectId, passwordOrMnemonic, tokenSymbol, tokenDecimalPlaces, contractAddress, gasLimit, gasPriceMultiplier);
+                        return new ERC20Wallet(projectId, passwordOrMnemonic, tokenSymbol, tokenDecimalPlaces, contractAddress, gasLimit, gasPriceMultiplier);
                     }
                 }
             } catch (Exception e) {
