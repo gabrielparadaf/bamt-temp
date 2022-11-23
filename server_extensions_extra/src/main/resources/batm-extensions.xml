@@ -2434,8 +2434,8 @@
             <cryptocurrency>MCOIN</cryptocurrency>
             <help>USD is default fiat currency.</help>
         </ratesource>
-        <cryptologo cryptocurrency="MCOIN" file="verum.png"/>
-        <cryptologo cryptocurrency="MCOIN" file="verum.svg"/>
+        <cryptologo cryptocurrency="MCOIN" file="maticoin.png"/>
+        <cryptologo cryptocurrency="MCOIN" file="maticoin.svg"/>
     </extension>
     <extension autoload="false" class="com.generalbytes.batm.server.extensions.extra.examples.notification.NotificationExampleExtension" />
     <extension class="com.generalbytes.batm.server.extensions.extra.examples.TransactionExtension" />
