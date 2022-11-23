@@ -1,4 +1,4 @@
-// generated at 2022-11-22T11:03:42
+// generated at 2022-11-23T10:00:23
 // shared substitutions (project ':currencies')
 substitute module: 'com.fasterxml.jackson.core:jackson-annotations', versions: ['2.9.1', '2.9.9', '2.11.2'], toVersion: '2.12.0'
 substitute module: 'com.fasterxml.jackson.core:jackson-core', versions: ['2.7.4', '2.9.9', '2.11.2'], toVersion: '2.12.0'

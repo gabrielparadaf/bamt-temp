@@ -2434,8 +2434,8 @@
             <cryptocurrency>MATICOIN</cryptocurrency>
             <help>USD is default fiat currency.</help>
         </ratesource>
-        <cryptologo cryptocurrency="MATICOIN" file="verum.png"/>
-        <cryptologo cryptocurrency="MATICOIN" file="verum.svg"/>
+        <cryptologo cryptocurrency="MATICOIN" file="maticoin.png"/>
+        <cryptologo cryptocurrency="MATICOIN" file="maticoin.svg"/>
     </extension>
     <extension autoload="false" class="com.generalbytes.batm.server.extensions.extra.examples.notification.NotificationExampleExtension" />
     <extension class="com.generalbytes.batm.server.extensions.extra.examples.TransactionExtension" />
