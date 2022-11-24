@@ -27,6 +27,7 @@ import org.web3j.protocol.Web3j;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.request.Transaction;
+import org.web3j.protocol.core.methods.request.TransactionManager;
 import org.web3j.protocol.core.methods.response.EthEstimateGas;
 import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
@@ -172,7 +173,7 @@ public class ERC20Wallet implements IWallet{
             //Encode function values in transaction data format
             String txData = FunctionEncoder.encode(function);
             
-            TransactionManager txManager = new RawTransactionManager(web3j, credentials);
+            TransactionManager txManager = new RawTransactionManager(w, credentials);
             String txHash = txManager.sendTransaction(
                 gasPrice, 
                 gasLimit, 
@@ -182,10 +183,12 @@ public class ERC20Wallet implements IWallet{
             
             // Wait for transaction to be mined
             TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(
-                web3j, 
+                w, 
                 TransactionManager.DEFAULT_POLLING_FREQUENCY, 
                 TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
             TransactionReceipt txReceipt = receiptProcessor.waitForTransactionReceipt(txHash);
+            
+            return txReceipt
 
 //             TransactionReceipt receipt = getContract(destinationAddress, tokens);
 //             CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, credentials.load(contractAddress), gasPrice, gasLimit).sendAsync();
