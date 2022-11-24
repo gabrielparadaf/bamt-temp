@@ -34,6 +34,7 @@ import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.RawTransactionManager;
 import org.web3j.tx.Transfer;
 import org.web3j.utils.Convert;
+import org.apache.commons.codec.binary.Hex;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -188,7 +189,7 @@ public class ERC20Wallet implements IWallet{
             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
 
             BigInteger tokens = convertFromBigDecimal(amount);
-            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, gasPrice, gasLimit, contract_address).sendAsync();
+            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, gasPrice, gasLimit, String(Hex.encode(contractAddress.getBytes()))).sendAsync();
             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
             log.debug("InfuraWallet receipt = " + receipt);
             return receipt.getTransactionHash();
