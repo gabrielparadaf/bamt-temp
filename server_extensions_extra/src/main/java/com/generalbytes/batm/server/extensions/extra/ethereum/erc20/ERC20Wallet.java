@@ -42,6 +42,8 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import static org.web3j.utils.Convert.Unit.ETHER;
+
 
 public class ERC20Wallet implements IWallet{
     private final String contractAddress;
