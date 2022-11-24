@@ -154,7 +154,7 @@ public class ERC20Wallet implements IWallet{
     }
     
     @Override
-    public String sendCoins(String destinationAddress, BigDecimal amount, String cryptoCurrency, String description) {
+    public String sendCoins(String destinationAddress, BigDecimal amount, String cryptoCurrency, String description) throws IOException, TransactionException {
         
         if (!getCryptoCurrencies().contains(cryptoCurrency)) {
             log.error("ERC20 wallet error: unknown cryptocurrency.");
@@ -188,6 +188,8 @@ public class ERC20Wallet implements IWallet{
         // Wait for transaction to be mined
         TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(w, TransactionManager.DEFAULT_POLLING_FREQUENCY, TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
         TransactionReceipt txReceipt = receiptProcessor.waitForTransactionReceipt(txHash);
+        
+        return "Testing";
         
     }
 
