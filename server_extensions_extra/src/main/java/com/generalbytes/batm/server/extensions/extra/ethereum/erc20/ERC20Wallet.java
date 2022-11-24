@@ -147,13 +147,24 @@ public class ERC20Wallet implements IWallet{
 
         try {
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-            BigInteger tokens = convertFromBigDecimal(amount);
-            TransactionReceipt receipt = getContract(destinationAddress, tokens)
-                .transfer(destinationAddress, tokens)
-                .sendAsync()
-                .get(10, TimeUnit.SECONDS);
-            log.debug("ERC20 receipt: {}", receipt);
+            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, '137'));
+            BigInteger gasLimit = getGasLimit(destinationAddress, amount);
+            if (gasLimit == null) return null;
+            BigInteger gasPrice = transfer.requestCurrentGasPrice();
+            log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
+
+            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
+            TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
+            log.debug("InfuraWallet receipt = " + receipt);
             return receipt.getTransactionHash();
+            
+//             BigInteger tokens = convertFromBigDecimal(amount);
+//             TransactionReceipt receipt = getContract(destinationAddress, tokens)
+//                 .transfer(destinationAddress, tokens)
+//                 .sendAsync()
+//                 .get(10, TimeUnit.SECONDS);
+//             log.debug("ERC20 receipt: {}", receipt);
+//             return receipt.getTransactionHash();
         } catch (TimeoutException e) {
             return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
         } catch (Exception e) {
