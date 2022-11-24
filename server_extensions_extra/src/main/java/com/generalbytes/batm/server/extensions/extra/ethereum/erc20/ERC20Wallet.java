@@ -175,45 +175,6 @@ public class ERC20Wallet implements IWallet{
 
         try {
             
-            // Test version
-            
-//             Function function = new Function<>(
-//                 "set",  // function we're calling
-//                 Arrays.asList(new Uint(BigInteger.valueOf(20))), 
-//                 Collections.emptyList());
-
-//             String encodedFunction = FunctionEncoder.encode(function)
-//             Transaction transaction = Transaction.createFunctionCallTransaction(
-//                          '0x8Db6Aa9103bE0E7b029D96133051A8a3E44fD30b', DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, amount, encodedFunction);
-
-//             org.web3j.protocol.core.methods.response.EthSendTransaction transactionResponse =
-//                          web3j.ethSendTransaction(transaction).sendAsync().get();
-
-//             String transactionHash = transactionResponse.getTransactionHash();
-            
-//             return transactionHash;
-            
-            // Function
-//             Function function = new Function("set",
-//                     Arrays.asList(new Uint(BigInteger.valueOf(20))), 
-//                     Collections.emptyList());
-
-//             //Encode function values in transaction data format
-//             String txData = FunctionEncoder.encode(function);
-
-//             // Build TransactionManager
-//             TransactionManager txManager = new RawTransactionManager(w, credentials, 137);
-
-//             // Send transaction
-//             String txHash = txManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, txData, BigInteger.ZERO).sendAsync().get();
-//             String transactionHash = txHash.getTransactionHash();
-            
-//             // Wait for transaction to be mined
-//             TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(w, TransactionManager.DEFAULT_POLLING_FREQUENCY, TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
-//             TransactionReceipt txReceipt = receiptProcessor.waitForTransactionReceipt(txHash);
-            
-//             return "pepe";
-            
             // Current version
             
 //             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
@@ -240,6 +201,7 @@ public class ERC20Wallet implements IWallet{
             log.debug("ERC20 receipt: {}", receipt);
             
             return receipt.getTransactionHash();
+            
         } catch (TimeoutException e) {
             return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
         } catch (Exception e) {
