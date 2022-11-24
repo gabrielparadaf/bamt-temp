@@ -128,38 +128,69 @@ public class ERC20Wallet implements IWallet{
         return null;
     }
 
-
     @Override
     public String sendCoins(String destinationAddress, BigDecimal amount, String cryptoCurrency, String description) {
         if (!getCryptoCurrencies().contains(cryptoCurrency)) {
-            log.error("ERC20 wallet error: unknown cryptocurrency.");
+            log.error("InfuraWallet wallet error: unknown cryptocurrency.");
             return null;
         }
 
         if (destinationAddress != null) {
             destinationAddress = destinationAddress.toLowerCase();
         }
-
-        BigDecimal cryptoBalance = getCryptoBalance(cryptoCurrency);
-        if (cryptoBalance == null || cryptoBalance.compareTo(amount) < 0) {
-            log.error("ERC20 wallet error: Not enough tokens. Balance is: " + cryptoBalance + " " + cryptoCurrency +". Trying to send: " + amount + " " + cryptoCurrency);
-            return null;
-        }
-
         try {
-            log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-            BigInteger tokens = convertFromBigDecimal(amount);
-            TransactionReceipt receipt = getContract(destinationAddress, tokens)
-                .transfer(destinationAddress, tokens)
-                .sendAsync()
-                .get(10, TimeUnit.SECONDS);
-            log.debug("ERC20 receipt: {}", receipt);
+            log.info("InfuraWallet - sending {} {} from {} to {}", amount, cryptoCurrency, credentials.getAddress(), destinationAddress);
+            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, ChainId.MAINNET));
+            BigInteger gasLimit = getGasLimit(destinationAddress, amount);
+            if (gasLimit == null) return null;
+            BigInteger gasPrice = transfer.requestCurrentGasPrice();
+            log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
+
+            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
+            TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
+            log.debug("InfuraWallet receipt = " + receipt);
             return receipt.getTransactionHash();
         } catch (TimeoutException e) {
-            return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
+            log.info("InfuraWallet - ignoring timeout, reporting transaction as successful anyway");
+            return "info_in_future"; //error probably will not happen as we waited already 10 seconds. -- it still happens, probably every time, but coins are being sent
         } catch (Exception e) {
             log.error("Error sending coins.", e);
         }
         return null;
     }
+
+
+    // @Override
+    // public String sendCoins(String destinationAddress, BigDecimal amount, String cryptoCurrency, String description) {
+    //     if (!getCryptoCurrencies().contains(cryptoCurrency)) {
+    //         log.error("ERC20 wallet error: unknown cryptocurrency.");
+    //         return null;
+    //     }
+
+    //     if (destinationAddress != null) {
+    //         destinationAddress = destinationAddress.toLowerCase();
+    //     }
+
+    //     BigDecimal cryptoBalance = getCryptoBalance(cryptoCurrency);
+    //     if (cryptoBalance == null || cryptoBalance.compareTo(amount) < 0) {
+    //         log.error("ERC20 wallet error: Not enough tokens. Balance is: " + cryptoBalance + " " + cryptoCurrency +". Trying to send: " + amount + " " + cryptoCurrency);
+    //         return null;
+    //     }
+
+    //     try {
+    //         log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
+    //         BigInteger tokens = convertFromBigDecimal(amount);
+    //         TransactionReceipt receipt = getContract(destinationAddress, tokens)
+    //             .transfer(destinationAddress, tokens, ChainId.MAINNET)
+    //             .sendAsync()
+    //             .get(10, TimeUnit.SECONDS);
+    //         log.debug("ERC20 receipt: {}", receipt);
+    //         return receipt.getTransactionHash();
+    //     } catch (TimeoutException e) {
+    //         return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
+    //     } catch (Exception e) {
+    //         log.error("Error sending coins.", e);
+    //     }
+    //     return null;
+    // }
 }
