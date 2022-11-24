@@ -134,7 +134,7 @@ public class MaticoinAddressValidator implements ICryptoAddressValidator {
     @Override
     public boolean isAddressValid(String address) {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
     @Override
