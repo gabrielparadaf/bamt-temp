@@ -128,38 +128,6 @@ public class ERC20Wallet implements IWallet{
         return null;
     }
 
-//     @Override
-//     public String sendCoins(String destinationAddress, BigDecimal amount, String cryptoCurrency, String description) {
-//         if (!getCryptoCurrencies().contains(cryptoCurrency)) {
-//             log.error("InfuraWallet wallet error: unknown cryptocurrency.");
-//             return null;
-//         }
-
-//         if (destinationAddress != null) {
-//             destinationAddress = destinationAddress.toLowerCase();
-//         }
-//         try {
-//             log.info("InfuraWallet - sending {} {} from {} to {}", amount, cryptoCurrency, credentials.getAddress(), destinationAddress);
-//             Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, ChainId.MAINNET));
-//             BigInteger gasLimit = getGasLimit(destinationAddress, amount);
-//             if (gasLimit == null) return null;
-//             BigInteger gasPrice = transfer.requestCurrentGasPrice();
-//             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
-
-//             CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
-//             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
-//             log.debug("InfuraWallet receipt = " + receipt);
-//             return receipt.getTransactionHash();
-//         } catch (TimeoutException e) {
-//             log.info("InfuraWallet - ignoring timeout, reporting transaction as successful anyway");
-//             return "info_in_future"; //error probably will not happen as we waited already 10 seconds. -- it still happens, probably every time, but coins are being sent
-//         } catch (Exception e) {
-//             log.error("Error sending coins.", e);
-//         }
-//         return null;
-//     }
-
-
     @Override
     public String sendCoins(String destinationAddress, BigDecimal amount, String cryptoCurrency, String description) {
         if (!getCryptoCurrencies().contains(cryptoCurrency)) {
@@ -169,7 +137,6 @@ public class ERC20Wallet implements IWallet{
 
         if (destinationAddress != null) {
             destinationAddress = destinationAddress.toLowerCase();
-            log.warn(destinationAddress.toLowerCase());
         }
 
         BigDecimal cryptoBalance = getCryptoBalance(cryptoCurrency);
