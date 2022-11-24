@@ -32,8 +32,7 @@ import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.RawTransactionManager;
-import org.web3j.tx.Transfer;
-import org.web3j.utils.Convert;
+
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -44,6 +43,17 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.CompletableFuture;
 
 import static org.web3j.utils.Convert.Unit.ETHER;
+
+// Added
+import org.web3j.tx.TransactionManager;
+import org.web3j.tx.Transfer;
+import org.web3j.utils.Convert;
+import org.web3j.abi.datatypes.Uint;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.concurrent.CompletableFuture;
+import org.web3j.abi.FunctionEncoder;
+import org.web3j.abi.datatypes.Function;
 
 
 public class ERC20Wallet implements IWallet{
