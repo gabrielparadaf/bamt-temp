@@ -54,6 +54,10 @@ import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 import org.web3j.abi.FunctionEncoder;
 import org.web3j.abi.datatypes.Function;
+import org.web3j.tx.gas.DefaultGasProvider;
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import java.io.IOException;
 
 
 public class ERC20Wallet implements IWallet{
