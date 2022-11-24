@@ -232,8 +232,9 @@ public class ERC20Wallet implements IWallet{
             // Old version
             log.warn("PEPE" + cryptoCurrency);
             BigInteger tokens = convertFromBigDecimal(amount);
+            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, contractAddress));
             TransactionReceipt receipt = getContract(destinationAddress, tokens)
-                .transfer(destinationAddress, tokens)
+                .transfer
                 .sendAsync()
                 .get(10, TimeUnit.SECONDS);
             log.debug("ERC20 receipt: {}", receipt);
