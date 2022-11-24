@@ -160,12 +160,12 @@ public class ERC20Wallet implements IWallet{
         try {
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
             Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
-            BigInteger gasLimit = getGasLimit(destinationAddress, amount);
+            BigInteger gasLimit = getGasLimit(destinationAddress, amount, contractAddress);
             if (gasLimit == null) return null;
             BigInteger gasPrice = transfer.requestCurrentGasPrice();
             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
 
-            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
+            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, contractAddress, gasPrice, gasLimit).sendAsync();
             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
             log.debug("InfuraWallet receipt = " + receipt);
             return receipt.getTransactionHash();
@@ -185,8 +185,8 @@ public class ERC20Wallet implements IWallet{
         return null;
     }
     
-    private BigInteger getGasLimit(String destinationAddress, BigDecimal amount) throws IOException {
-        BigInteger weiValue = Convert.toWei(amount, ETHER).toBigIntegerExact();
+    private BigInteger getGasLimit(String destinationAddress, BigDecimal amount, contractAddress) throws IOException {
+        BigInteger weiValue = Convert.toWei(amount, contractAddress).toBigIntegerExact();
         Transaction transaction = Transaction.createEtherTransaction(credentials.getAddress(), null, null, null, destinationAddress, weiValue);
         EthEstimateGas estimateGas = w.ethEstimateGas(transaction).send();
         if (estimateGas.hasError()) {
