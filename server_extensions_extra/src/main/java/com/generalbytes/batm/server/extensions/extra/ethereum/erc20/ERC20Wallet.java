@@ -162,26 +162,45 @@ public class ERC20Wallet implements IWallet{
             log.error("ERC20 wallet error: Not enough tokens. Balance is: " + cryptoBalance + " " + cryptoCurrency +". Trying to send: " + amount + " " + cryptoCurrency);
             return null;
         }
+        
+        log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
+        Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
+        TransactionManager txManager = new RawTransactionManager(w, credentials, 137);
+        BigInteger gasLimit = getGasLimit(destinationAddress, amount);
+        if (gasLimit == null) return null;
+        BigInteger gasPrice = transfer.requestCurrentGasPrice();
+        log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
+            
+        Function function = new Function("set", // Function name
+            Arrays.asList(new Uint(BigInteger.valueOf(20))), // Function input parameters
+            Collections.emptyList()); // Function returned parameters
 
-        try {
-            log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
-            TransactionManager txManager = new RawTransactionManager(w, credentials, 137);
-            BigInteger gasLimit = getGasLimit(destinationAddress, amount);
-            if (gasLimit == null) return null;
-            BigInteger gasPrice = transfer.requestCurrentGasPrice();
-            log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
+        //Encode function values in transaction data format
+        String txData = FunctionEncoder.encode(function);
+        
+        String txHash = txManager.sendTransaction(gasPrice, gasLimit, contractAddress, txData, BigInteger.ZERO).getTransactionHash();
             
-            Function function = new Function("set", // Function name
-                Arrays.asList(new Uint(BigInteger.valueOf(20))), // Function input parameters
-                Collections.emptyList()); // Function returned parameters
+        return txHash;
 
-            //Encode function values in transaction data format
-            String txData = FunctionEncoder.encode(function);
+//         try {
+//             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
+//             Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
+//             TransactionManager txManager = new RawTransactionManager(w, credentials, 137);
+//             BigInteger gasLimit = getGasLimit(destinationAddress, amount);
+//             if (gasLimit == null) return null;
+//             BigInteger gasPrice = transfer.requestCurrentGasPrice();
+//             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
             
-            String txHash = txManager.sendTransaction(gasPrice, gasLimit, contractAddress, txData, BigInteger.ZERO).getTransactionHash();
+//             Function function = new Function("set", // Function name
+//                 Arrays.asList(new Uint(BigInteger.valueOf(20))), // Function input parameters
+//                 Collections.emptyList()); // Function returned parameters
+
+//             //Encode function values in transaction data format
+//             String txData = FunctionEncoder.encode(function);
             
-            return txHash;
+//             String txHash = txManager.sendTransaction(gasPrice, gasLimit, contractAddress, txData, BigInteger.ZERO).getTransactionHash();
+            
+//             return txHash;
             
 //             CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
 //             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
@@ -195,12 +214,12 @@ public class ERC20Wallet implements IWallet{
 //                 .get(10, TimeUnit.SECONDS);
 //             log.debug("ERC20 receipt: {}", receipt);
 //             return receipt.getTransactionHash();
-        } catch (Exception e) {
-            return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
-        } catch (Exception e) {
-            log.error("Error sending coins.", e);
-        }
-        return null;
+//         } catch (Exception e) {
+//             return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
+//         } catch (Exception e) {
+//             log.error("Error sending coins.", e);
+//         }
+//         return null;
     }
     
     private BigInteger getGasLimit(String destinationAddress, BigDecimal amount) throws IOException {
