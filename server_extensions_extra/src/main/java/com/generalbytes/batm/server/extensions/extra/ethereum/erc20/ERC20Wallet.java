@@ -44,6 +44,8 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.CompletableFuture;
+import org.web3j.abi.FunctionEncoder;
+import org.web3j.abi.datatypes.Function;
 
 import static org.web3j.utils.Convert.Unit.ETHER;
 
@@ -167,7 +169,14 @@ public class ERC20Wallet implements IWallet{
             BigInteger gasPrice = transfer.requestCurrentGasPrice();
             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
             
-            String txHash = txManager.sendTransaction(gasPrice, gasLimit, contractAddress, BigInteger.ZERO).getTransactionHash();
+            Function function = new Function("set", // Function name
+                Arrays.asList(new Uint(BigInteger.valueOf(20))), // Function input parameters
+                Collections.emptyList()); // Function returned parameters
+
+            //Encode function values in transaction data format
+            String txData = FunctionEncoder.encode(function);
+            
+            String txHash = txManager.sendTransaction(gasPrice, gasLimit, contractAddress, txData, BigInteger.ZERO).getTransactionHash();
             
             return txHash;
             
