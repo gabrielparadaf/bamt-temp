@@ -165,8 +165,8 @@ public class ERC20Wallet implements IWallet{
             BigInteger gasPrice = transfer.requestCurrentGasPrice();
             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
 
-            TransactionReceipt receipt = getContract(destinationAddress, tokens);
-            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, receipt, gasPrice, gasLimit).sendAsync();
+//             TransactionReceipt receipt = getContract(destinationAddress, tokens);
+            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, credentials.getContract(), gasPrice, gasLimit).sendAsync();
             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
             log.debug("InfuraWallet receipt = " + receipt);
             return receipt.getTransactionHash();
