@@ -185,8 +185,8 @@ public class ERC20Wallet implements IWallet{
         return null;
     }
     
-    private BigInteger getGasLimit(String destinationAddress, BigDecimal amount, String contractAddress) throws IOException {
-        BigInteger weiValue = Convert.toWei(amount, contractAddress).toBigIntegerExact();
+    private BigInteger getGasLimit(String destinationAddress, BigDecimal amount) throws IOException {
+        BigInteger weiValue = Convert.toWei(amount, ETHER).toBigIntegerExact();
         Transaction transaction = Transaction.createEtherTransaction(credentials.getAddress(), null, null, null, destinationAddress, weiValue);
         EthEstimateGas estimateGas = w.ethEstimateGas(transaction).send();
         if (estimateGas.hasError()) {
