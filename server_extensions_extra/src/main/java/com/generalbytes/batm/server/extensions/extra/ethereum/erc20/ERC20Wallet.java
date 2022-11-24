@@ -46,6 +46,9 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.CompletableFuture;
 import org.web3j.abi.FunctionEncoder;
 import org.web3j.abi.datatypes.Function;
+import org.web3j.abi.datatypes.Uint;
+import java.util.Arrays;
+import java.util.Collections;
 
 import static org.web3j.utils.Convert.Unit.ETHER;
 
