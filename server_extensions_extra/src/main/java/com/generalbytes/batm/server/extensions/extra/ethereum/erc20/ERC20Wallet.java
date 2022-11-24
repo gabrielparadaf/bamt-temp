@@ -147,7 +147,7 @@ public class ERC20Wallet implements IWallet{
 
         try {
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, '137'));
+            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
             BigInteger gasLimit = getGasLimit(destinationAddress, amount);
             if (gasLimit == null) return null;
             BigInteger gasPrice = transfer.requestCurrentGasPrice();
