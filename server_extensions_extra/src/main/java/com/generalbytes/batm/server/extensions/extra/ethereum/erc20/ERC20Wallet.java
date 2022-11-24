@@ -160,41 +160,18 @@ public class ERC20Wallet implements IWallet{
 
         try {
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
+            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137), credentials.load(contractAddress));
             BigInteger gasLimit = getGasLimit(destinationAddress, amount);
             if (gasLimit == null) return null;
             BigInteger gasPrice = transfer.requestCurrentGasPrice();
             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
             
-            Function function = new Function("set", // Function name
-                Arrays.asList(new Uint(BigInteger.valueOf(20))), // Function input parameters
-                Collections.emptyList()); // Function returned parameters
 
-            //Encode function values in transaction data format
-            String txData = FunctionEncoder.encode(function);
-            
-            TransactionManager txManager = new RawTransactionManager(w, credentials);
-            String txHash = txManager.sendTransaction(
-                gasPrice, 
-                gasLimit, 
-                contractAddress, 
-                txData, 
-                BigInteger.ZERO).getTransactionHash();
-            
-            // Wait for transaction to be mined
-            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(
-                w, 
-                TransactionManager.DEFAULT_POLLING_FREQUENCY, 
-                TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
-            TransactionReceipt txReceipt = receiptProcessor.waitForTransactionReceipt(txHash);
-            
-            return txReceipt;
-
-//             TransactionReceipt receipt = getContract(destinationAddress, tokens);
-//             CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, credentials.load(contractAddress), gasPrice, gasLimit).sendAsync();
-//             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
-//             log.debug("InfuraWallet receipt = " + receipt);
-//             return receipt.getTransactionHash();
+            TransactionReceipt receipt = getContract(destinationAddress, tokens);
+            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
+            TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
+            log.debug("InfuraWallet receipt = " + receipt);
+            return receipt.getTransactionHash();
             
 //             BigInteger tokens = convertFromBigDecimal(amount);
 //             TransactionReceipt receipt = getContract(destinationAddress, tokens)
