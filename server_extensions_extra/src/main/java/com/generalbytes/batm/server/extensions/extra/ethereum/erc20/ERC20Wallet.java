@@ -195,7 +195,7 @@ public class ERC20Wallet implements IWallet{
 //                 .get(10, TimeUnit.SECONDS);
 //             log.debug("ERC20 receipt: {}", receipt);
 //             return receipt.getTransactionHash();
-        } catch (TimeoutException e) {
+        } catch (Exception e) {
             return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
         } catch (Exception e) {
             log.error("Error sending coins.", e);
