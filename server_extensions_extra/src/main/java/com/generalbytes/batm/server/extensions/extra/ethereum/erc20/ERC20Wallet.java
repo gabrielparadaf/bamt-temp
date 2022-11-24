@@ -160,16 +160,20 @@ public class ERC20Wallet implements IWallet{
 
         try {
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137), contractAddress);
+            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
             BigInteger gasLimit = getGasLimit(destinationAddress, amount);
             if (gasLimit == null) return null;
             BigInteger gasPrice = transfer.requestCurrentGasPrice();
             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
             
-            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
-            TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
-            log.debug("InfuraWallet receipt = " + receipt);
-            return receipt.getTransactionHash();
+            String txHash = transfer.sendTransaction(gasPrice, gasLimit, contractAddress, BigInteger.ZERO).getTransactionHash();
+            
+            return txHash;
+            
+//             CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
+//             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
+//             log.debug("InfuraWallet receipt = " + receipt);
+//             return receipt.getTransactionHash();
             
 //             BigInteger tokens = convertFromBigDecimal(amount);
 //             TransactionReceipt receipt = getContract(destinationAddress, tokens)
