@@ -181,7 +181,7 @@ public class ERC20Wallet implements IWallet{
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
             BigInteger tokens = convertFromBigDecimal(amount);
             TransactionReceipt receipt = getContract(destinationAddress, tokens)
-                .transfer(destinationAddress, tokens, ChainId.MAINNET)
+                .transfer(destinationAddress, tokens, '137')
                 .sendAsync()
                 .get(10, TimeUnit.SECONDS);
             log.debug("ERC20 receipt: {}", receipt);
