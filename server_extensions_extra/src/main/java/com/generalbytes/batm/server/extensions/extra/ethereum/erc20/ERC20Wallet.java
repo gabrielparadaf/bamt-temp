@@ -34,7 +34,6 @@ import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.RawTransactionManager;
 import org.web3j.tx.Transfer;
 import org.web3j.utils.Convert;
-import org.apache.commons.codec.binary.Hex;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -182,14 +181,14 @@ public class ERC20Wallet implements IWallet{
             // Current version
             
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
+            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, contractAddress));
             BigInteger gasLimit = getGasLimit(destinationAddress, amount);
             if (gasLimit == null) return null;
             BigInteger gasPrice = transfer.requestCurrentGasPrice();
             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
 
             BigInteger tokens = convertFromBigDecimal(amount);
-            CompletableFuture<TransactionReceipt> future = transfer.createTransaction(destinationAddress, amount, gasPrice, gasLimit, String(Hex.encode(contractAddress.getBytes()))).sendAsync();
+            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, gasPrice, gasLimit, String(Hex.encode(contractAddress.getBytes()))).sendAsync();
             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
             log.debug("InfuraWallet receipt = " + receipt);
             return receipt.getTransactionHash();
