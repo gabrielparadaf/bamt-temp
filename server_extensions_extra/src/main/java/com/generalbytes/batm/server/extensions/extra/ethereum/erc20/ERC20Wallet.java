@@ -169,6 +169,7 @@ public class ERC20Wallet implements IWallet{
 
         if (destinationAddress != null) {
             destinationAddress = destinationAddress.toLowerCase();
+            Log.warn(destinationAddress.toLowerCase());
         }
 
         BigDecimal cryptoBalance = getCryptoBalance(cryptoCurrency);
@@ -181,7 +182,7 @@ public class ERC20Wallet implements IWallet{
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
             BigInteger tokens = convertFromBigDecimal(amount);
             TransactionReceipt receipt = getContract(destinationAddress, tokens)
-                .transfer(destinationAddress, tokens, '137')
+                .transfer(destinationAddress, tokens)
                 .sendAsync()
                 .get(10, TimeUnit.SECONDS);
             log.debug("ERC20 receipt: {}", receipt);
