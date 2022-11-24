@@ -177,21 +177,21 @@ public class ERC20Wallet implements IWallet{
             
             // Test version
             
-            Function function = new Function<>(
-                "set",  // function we're calling
-                Arrays.asList(new Uint(BigInteger.valueOf(20))), 
-                Collections.emptyList());
+//             Function function = new Function<>(
+//                 "set",  // function we're calling
+//                 Arrays.asList(new Uint(BigInteger.valueOf(20))), 
+//                 Collections.emptyList());
 
-            String encodedFunction = FunctionEncoder.encode(function)
-            Transaction transaction = Transaction.createFunctionCallTransaction(
-                         '0x8Db6Aa9103bE0E7b029D96133051A8a3E44fD30b', DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, amount, encodedFunction);
+//             String encodedFunction = FunctionEncoder.encode(function)
+//             Transaction transaction = Transaction.createFunctionCallTransaction(
+//                          '0x8Db6Aa9103bE0E7b029D96133051A8a3E44fD30b', DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, amount, encodedFunction);
 
-            org.web3j.protocol.core.methods.response.EthSendTransaction transactionResponse =
-                         web3j.ethSendTransaction(transaction).sendAsync().get();
+//             org.web3j.protocol.core.methods.response.EthSendTransaction transactionResponse =
+//                          web3j.ethSendTransaction(transaction).sendAsync().get();
 
-            String transactionHash = transactionResponse.getTransactionHash();
+//             String transactionHash = transactionResponse.getTransactionHash();
             
-            return transactionHash;
+//             return transactionHash;
             
             // Function
 //             Function function = new Function("set",
@@ -230,14 +230,15 @@ public class ERC20Wallet implements IWallet{
 //             return receipt.getTransactionHash();
             
             // Old version
+            log.warn("PEPE" + cryptoCurrency);
+            BigInteger tokens = convertFromBigDecimal(amount);
+            TransactionReceipt receipt = getContract(destinationAddress, tokens)
+                .transfer(destinationAddress, tokens)
+                .sendAsync()
+                .get(10, TimeUnit.SECONDS);
+            log.debug("ERC20 receipt: {}", receipt);
             
-//             BigInteger tokens = convertFromBigDecimal(amount);
-//             TransactionReceipt receipt = getContract(destinationAddress, tokens)
-//                 .transfer(destinationAddress, tokens)
-//                 .sendAsync()
-//                 .get(10, TimeUnit.SECONDS);
-//             log.debug("ERC20 receipt: {}", receipt);
-//             return receipt.getTransactionHash();
+            return receipt.getTransactionHash();
         } catch (TimeoutException e) {
             return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
         } catch (Exception e) {
