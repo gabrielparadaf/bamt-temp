@@ -176,12 +176,20 @@ public class ERC20Wallet implements IWallet{
         try {
             
             // Test version
+            
+            // Function
+            Function function = new Function("set",
+                    Arrays.asList(new Uint(BigInteger.valueOf(20))), 
+                    Collections.emptyList());
+
+            //Encode function values in transaction data format
+            String txData = FunctionEncoder.encode(function);
 
             // Build TransactionManager
             TransactionManager txManager = new RawTransactionManager(w, credentials, 137);
 
             // Send transaction
-            String txHash = txManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, BigInteger.ZERO).getTransactionHash();
+            String txHash = txManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, txData, BigInteger.ZERO).getTransactionHash();
 
             // Wait for transaction to be mined
             TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(w, TransactionManager.DEFAULT_POLLING_FREQUENCY, TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
