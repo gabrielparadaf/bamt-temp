@@ -188,7 +188,7 @@ public class ERC20Wallet implements IWallet{
                 TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
             TransactionReceipt txReceipt = receiptProcessor.waitForTransactionReceipt(txHash);
             
-            return txReceipt
+            return txReceipt;
 
 //             TransactionReceipt receipt = getContract(destinationAddress, tokens);
 //             CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, credentials.load(contractAddress), gasPrice, gasLimit).sendAsync();
