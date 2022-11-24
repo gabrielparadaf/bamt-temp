@@ -164,12 +164,34 @@ public class ERC20Wallet implements IWallet{
             if (gasLimit == null) return null;
             BigInteger gasPrice = transfer.requestCurrentGasPrice();
             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
+            
+            Function function = new Function("set", // Function name
+                Arrays.asList(new Uint(BigInteger.valueOf(20))), // Function input parameters
+                Collections.emptyList()); // Function returned parameters
+
+            //Encode function values in transaction data format
+            String txData = FunctionEncoder.encode(function);
+            
+            TransactionManager txManager = new RawTransactionManager(web3j, credentials);
+            String txHash = txManager.sendTransaction(
+                gasPrice, 
+                gasLimit, 
+                contractAddress, 
+                txData, 
+                BigInteger.ZERO).getTransactionHash();
+            
+            // Wait for transaction to be mined
+            TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(
+                web3j, 
+                TransactionManager.DEFAULT_POLLING_FREQUENCY, 
+                TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+            TransactionReceipt txReceipt = receiptProcessor.waitForTransactionReceipt(txHash);
 
 //             TransactionReceipt receipt = getContract(destinationAddress, tokens);
-            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, credentials.load(contractAddress), gasPrice, gasLimit).sendAsync();
-            TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
-            log.debug("InfuraWallet receipt = " + receipt);
-            return receipt.getTransactionHash();
+//             CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, credentials.load(contractAddress), gasPrice, gasLimit).sendAsync();
+//             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
+//             log.debug("InfuraWallet receipt = " + receipt);
+//             return receipt.getTransactionHash();
             
 //             BigInteger tokens = convertFromBigDecimal(amount);
 //             TransactionReceipt receipt = getContract(destinationAddress, tokens)
