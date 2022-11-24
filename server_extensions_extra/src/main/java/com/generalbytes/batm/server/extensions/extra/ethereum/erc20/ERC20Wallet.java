@@ -175,32 +175,19 @@ public class ERC20Wallet implements IWallet{
 
         try {
             
-            // Current version
-            
-//             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-//             Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, contractAddress));
-//             BigInteger gasLimit = getGasLimit(destinationAddress, amount);
-//             if (gasLimit == null) return null;
-//             BigInteger gasPrice = transfer.requestCurrentGasPrice();
-//             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
+            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials));
 
-//             BigInteger tokens = convertFromBigDecimal(amount);
-//             CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, gasPrice, gasLimit).sendAsync();
-//             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
-//             log.debug("InfuraWallet receipt = " + receipt);
-//             return receipt.getTransactionHash();
-            
-            // Old version
-            log.warn("PEPE" + cryptoCurrency);
-            BigInteger tokens = convertFromBigDecimal(amount);
-            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, contractAddress));
-            TransactionReceipt receipt = getContract(destinationAddress, tokens)
-                .transfer
-                .sendAsync()
-                .get(10, TimeUnit.SECONDS);
-            log.debug("ERC20 receipt: {}", receipt);
-            
-            return receipt.getTransactionHash();
+           BigInteger gasLimit = getGasLimit(destinationAddress, amount);
+           if (gasLimit == null) return null;
+
+           BigInteger gasPrice = transfer.requestCurrentGasPrice();
+           log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
+
+           CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
+           TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
+           log.debug("InfuraWallet receipt = " + receipt);
+
+           return receipt.getTransactionHash();
             
         } catch (TimeoutException e) {
             return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
