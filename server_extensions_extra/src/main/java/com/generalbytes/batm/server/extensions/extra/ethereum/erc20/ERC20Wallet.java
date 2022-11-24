@@ -169,7 +169,7 @@ public class ERC20Wallet implements IWallet{
 
         if (destinationAddress != null) {
             destinationAddress = destinationAddress.toLowerCase();
-            Log.warn(destinationAddress.toLowerCase());
+            log.warn(destinationAddress.toLowerCase());
         }
 
         BigDecimal cryptoBalance = getCryptoBalance(cryptoCurrency);
