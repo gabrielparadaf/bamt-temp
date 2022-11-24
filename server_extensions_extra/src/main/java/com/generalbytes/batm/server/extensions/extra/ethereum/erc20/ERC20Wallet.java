@@ -32,11 +32,9 @@ import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.RawTransactionManager;
-import org.web3j.tx.TransactionManager;
 import org.web3j.tx.Transfer;
 import org.web3j.utils.Convert;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashSet;
@@ -44,11 +42,6 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.CompletableFuture;
-import org.web3j.abi.FunctionEncoder;
-import org.web3j.abi.datatypes.Function;
-import org.web3j.abi.datatypes.Uint;
-import java.util.Arrays;
-import java.util.Collections;
 
 import static org.web3j.utils.Convert.Unit.ETHER;
 
@@ -145,9 +138,10 @@ public class ERC20Wallet implements IWallet{
         }
         return null;
     }
-
+    
     @Override
     public String sendCoins(String destinationAddress, BigDecimal amount, String cryptoCurrency, String description) {
+        
         if (!getCryptoCurrencies().contains(cryptoCurrency)) {
             log.error("ERC20 wallet error: unknown cryptocurrency.");
             return null;
@@ -163,64 +157,70 @@ public class ERC20Wallet implements IWallet{
             return null;
         }
         
-        log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-        Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
-        TransactionManager txManager = new RawTransactionManager(w, credentials, 137);
-        BigInteger gasLimit = getGasLimit(destinationAddress, amount);
-        if (gasLimit == null) return null;
-        BigInteger gasPrice = transfer.requestCurrentGasPrice();
-        log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
-            
-        Function function = new Function("set", // Function name
-            Arrays.asList(new Uint(BigInteger.valueOf(20))), // Function input parameters
-            Collections.emptyList()); // Function returned parameters
+        // Function
+        Function function = new Function("set",
+                Arrays.asList(new Uint(BigInteger.valueOf(20))), 
+                Collections.emptyList());
 
         //Encode function values in transaction data format
         String txData = FunctionEncoder.encode(function);
         
-        String txHash = txManager.sendTransaction(gasPrice, gasLimit, contractAddress, txData, BigInteger.ZERO).getTransactionHash();
-            
-        return txHash;
+        // Build TransactionManager
+        TransactionManager txManager = new RawTransactionManager(w, credentials, 137);
+        
+        // Send transaction
+        String txHash = txManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, txData, BigInteger.ZERO).getTransactionHash();
+        
+        // Wait for transaction to be mined
+        TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(w, TransactionManager.DEFAULT_POLLING_FREQUENCY, TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+        TransactionReceipt txReceipt = receiptProcessor.waitForTransactionReceipt(txHash);
+        
+    }
+
+//     @Override
+//     public String sendCoins(String destinationAddress, BigDecimal amount, String cryptoCurrency, String description) {
+//         if (!getCryptoCurrencies().contains(cryptoCurrency)) {
+//             log.error("ERC20 wallet error: unknown cryptocurrency.");
+//             return null;
+//         }
+
+//         if (destinationAddress != null) {
+//             destinationAddress = destinationAddress.toLowerCase();
+//         }
+
+//         BigDecimal cryptoBalance = getCryptoBalance(cryptoCurrency);
+//         if (cryptoBalance == null || cryptoBalance.compareTo(amount) < 0) {
+//             log.error("ERC20 wallet error: Not enough tokens. Balance is: " + cryptoBalance + " " + cryptoCurrency +". Trying to send: " + amount + " " + cryptoCurrency);
+//             return null;
+//         }
 
 //         try {
 //             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
 //             Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
-//             TransactionManager txManager = new RawTransactionManager(w, credentials, 137);
 //             BigInteger gasLimit = getGasLimit(destinationAddress, amount);
 //             if (gasLimit == null) return null;
 //             BigInteger gasPrice = transfer.requestCurrentGasPrice();
 //             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
-            
-//             Function function = new Function("set", // Function name
-//                 Arrays.asList(new Uint(BigInteger.valueOf(20))), // Function input parameters
-//                 Collections.emptyList()); // Function returned parameters
 
-//             //Encode function values in transaction data format
-//             String txData = FunctionEncoder.encode(function);
-            
-//             String txHash = txManager.sendTransaction(gasPrice, gasLimit, contractAddress, txData, BigInteger.ZERO).getTransactionHash();
-            
-//             return txHash;
-            
 //             CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
 //             TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
 //             log.debug("InfuraWallet receipt = " + receipt);
 //             return receipt.getTransactionHash();
             
-//             BigInteger tokens = convertFromBigDecimal(amount);
-//             TransactionReceipt receipt = getContract(destinationAddress, tokens)
-//                 .transfer(destinationAddress, tokens)
-//                 .sendAsync()
-//                 .get(10, TimeUnit.SECONDS);
-//             log.debug("ERC20 receipt: {}", receipt);
-//             return receipt.getTransactionHash();
-//         } catch (Exception e) {
+// //             BigInteger tokens = convertFromBigDecimal(amount);
+// //             TransactionReceipt receipt = getContract(destinationAddress, tokens)
+// //                 .transfer(destinationAddress, tokens)
+// //                 .sendAsync()
+// //                 .get(10, TimeUnit.SECONDS);
+// //             log.debug("ERC20 receipt: {}", receipt);
+// //             return receipt.getTransactionHash();
+//         } catch (TimeoutException e) {
 //             return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
 //         } catch (Exception e) {
 //             log.error("Error sending coins.", e);
 //         }
 //         return null;
-    }
+//     }
     
     private BigInteger getGasLimit(String destinationAddress, BigDecimal amount) throws IOException {
         BigInteger weiValue = Convert.toWei(amount, ETHER).toBigIntegerExact();
