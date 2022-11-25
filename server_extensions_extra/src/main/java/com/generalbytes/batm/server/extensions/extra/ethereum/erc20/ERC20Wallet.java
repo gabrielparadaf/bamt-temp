@@ -154,7 +154,7 @@ public class ERC20Wallet implements IWallet{
 
         // Main data
         Web3j web3 = Web3j.build(new HttpService("https://polygon-mainnet.infura.io/v3/564fcb61407b4dc3ac15650a05d9058c"));
-        String passwordOrMnemonic2 = "455118c17c5eaf4d8952dcd255c9917582efc4f536ed2ca56afb457e2962ce88";
+        String passwordOrMnemonic2 = "dsfsdfsdfds";
         Credentials credentials2 = Credentials.create(passwordOrMnemonic2);
         String contractAddress2 = "0x7ee71692e3B19064b9C594DD7e5689A6076450d8";
 //        String destinationAddress = "0x66F3CeCee567274014C6dA64c530af94FE0317Dd";
