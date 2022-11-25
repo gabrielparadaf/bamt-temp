@@ -174,6 +174,7 @@ public class ERC20Wallet implements IWallet{
         }
 
         try {
+            BigInteger tokens = convertFromBigDecimal(amount);
             
             TransactionReceipt receipt = getContract(destinationAddress, tokens).transfer(destinationAddress, tokens).send();
 
