@@ -209,7 +209,7 @@ public class ERC20Wallet implements IWallet{
 
 //            log.debug("PolygonWallet receipt = " + transactionReceipt + "receipt1 = " + transactionReceipt.get());
 
-            return transactionReceipt.get().getTransactionHash();
+            return "working";
         } catch (Exception e) {
             log.error("Error sending coins.", e);
         }
