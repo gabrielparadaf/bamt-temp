@@ -203,18 +203,13 @@ public class ERC20Wallet implements IWallet{
             String encodedFunction = FunctionEncoder.encode(function);
 
             TransactionManager transactionManager = new RawTransactionManager(w, credentials, 137);
-            String transactionHash = transactionManager.sendTransaction(DefaultGasProvider.GAS_PRICE, gasLimit, contractAddress, encodedFunction, tokens).getTransactionHash();
+            String transactionHash = transactionManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, encodedFunction, tokens).getTransactionHash();
 
-            CompletableFuture<EthGetTransactionReceipt> receipt = w.ethGetTransactionReceipt(transactionHash).sendAsync();
-            EthGetTransactionReceipt receipt1 = receipt.get(10, TimeUnit.SECONDS);
+            Optional<TransactionReceipt> transactionReceipt = w.ethGetTransactionReceipt(transactionHash).send().getTransactionReceipt();
 
-            log.debug("PolygonWallet receipt = " + receipt + "receipt1 = " + receipt1.getResult());
+            log.debug("PolygonWallet receipt = " + transactionReceipt + "receipt1 = " + transactionReceipt.get());
 
-            return receipt1.getTransactionReceipt().get().getTransactionHash();
-
-
-        } catch (TimeoutException e) {
-            return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
+            return transactionReceipt.get().getTransactionHash();
         } catch (Exception e) {
             log.error("Error sending coins.", e);
         }
