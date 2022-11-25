@@ -207,7 +207,7 @@ public class ERC20Wallet implements IWallet{
 
             Optional<TransactionReceipt> transactionReceipt = w.ethGetTransactionReceipt(transactionHash).send().getTransactionReceipt();
 
-            log.debug("PolygonWallet receipt = " + transactionReceipt + "receipt1 = " + transactionReceipt.get());
+//            log.debug("PolygonWallet receipt = " + transactionReceipt + "receipt1 = " + transactionReceipt.get());
 
             return transactionReceipt.get().getTransactionHash();
         } catch (Exception e) {
