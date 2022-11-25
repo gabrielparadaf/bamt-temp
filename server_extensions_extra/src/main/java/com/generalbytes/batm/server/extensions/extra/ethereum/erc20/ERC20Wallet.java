@@ -171,7 +171,7 @@ public class ERC20Wallet implements IWallet{
             BigInteger tokens = convertFromBigDecimal(amount);
 
             // Java wraper
-            TransactionReceipt receipt = getContract(destinationAddress, tokens).transfer(destinationAddress, tokens).send();
+//            TransactionReceipt receipt = getContract(destinationAddress, tokens).transfer(destinationAddress, tokens).send();
 
             Function function = new Function(
                     "transfer",
@@ -186,10 +186,6 @@ public class ERC20Wallet implements IWallet{
             String transactionHash = transactionManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, encodedFunction, BigInteger.ZERO).getTransactionHash();
 
             Optional<TransactionReceipt> transactionReceipt = w.ethGetTransactionReceipt(transactionHash).send().getTransactionReceipt();
-
-            if (transactionReceipt != null) {
-                receipt = transactionReceipt.get();
-            }
 
 
 
@@ -215,11 +211,9 @@ public class ERC20Wallet implements IWallet{
 //                 .get(10, TimeUnit.SECONDS);
 //             log.debug("ERC20 receipt: {}", receipt);
 
-             return receipt.getTransactionHash();
+             return transactionHash;
 
-        } catch (TimeoutException e) {
-            return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
-        } catch (Exception e) {
+        }  catch (Exception e) {
             log.error("Error sending coins.", e);
         }
         return null;
