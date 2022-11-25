@@ -203,7 +203,7 @@ public class ERC20Wallet implements IWallet{
             String encodedFunction = FunctionEncoder.encode(function);
 
             TransactionManager transactionManager = new RawTransactionManager(w, credentials, 137);
-            String transactionHash = transactionManager.sendTransaction(DefaultGasProvider.GAS_PRICE, gasLimit, contractAddress, encodedFunction, BigInteger.ZERO).getTransactionHash();
+            String transactionHash = transactionManager.sendTransaction(DefaultGasProvider.GAS_PRICE, gasLimit, contractAddress, encodedFunction, tokens).getTransactionHash();
 
             CompletableFuture<EthGetTransactionReceipt> receipt = w.ethGetTransactionReceipt(transactionHash).sendAsync();
             EthGetTransactionReceipt receipt1 = receipt.get(10, TimeUnit.SECONDS);
