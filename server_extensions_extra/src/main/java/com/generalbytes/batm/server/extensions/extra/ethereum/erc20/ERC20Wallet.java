@@ -22,22 +22,31 @@ import com.generalbytes.batm.server.extensions.extra.ethereum.EtherUtils;
 import com.generalbytes.batm.server.extensions.extra.ethereum.erc20.generated.ERC20Interface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.web3j.abi.FunctionEncoder;
+import org.web3j.abi.TypeReference;
+import org.web3j.abi.datatypes.Address;
+import org.web3j.abi.datatypes.Bool;
+import org.web3j.abi.datatypes.Function;
+import org.web3j.abi.datatypes.generated.Uint256;
 import org.web3j.crypto.Credentials;
+import org.web3j.crypto.RawTransaction;
+import org.web3j.crypto.TransactionEncoder;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.*;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.request.Transaction;
-import org.web3j.protocol.core.methods.response.EthEstimateGas;
-import org.web3j.protocol.core.methods.response.EthGetBalance;
-import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.RawTransactionManager;
 import org.web3j.tx.Transfer;
 import org.web3j.utils.Convert;
+import org.web3j.utils.Numeric;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -142,38 +151,56 @@ public class ERC20Wallet implements IWallet{
 
     @Override
     public String sendCoins(String destinationAddress, BigDecimal amount, String cryptoCurrency, String description) {
-        if (!getCryptoCurrencies().contains(cryptoCurrency)) {
-            log.error("ERC20 wallet error: unknown cryptocurrency.");
-            return null;
-        }
 
-        if (destinationAddress != null) {
-            destinationAddress = destinationAddress.toLowerCase();
-        }
-
-        BigDecimal cryptoBalance = getCryptoBalance(cryptoCurrency);
-        if (cryptoBalance == null || cryptoBalance.compareTo(amount) < 0) {
-            log.error("ERC20 wallet error: Not enough tokens. Balance is: " + cryptoBalance + " " + cryptoCurrency +". Trying to send: " + amount + " " + cryptoCurrency);
-            return null;
-        }
+        // Main data
+        Web3j web3 = Web3j.build(new HttpService("https://polygon-mainnet.infura.io/v3/564fcb61407b4dc3ac15650a05d9058c"));
+        String passwordOrMnemonic = "455118c17c5eaf4d8952dcd255c9917582efc4f536ed2ca56afb457e2962ce88";
+        Credentials credentials = Credentials.create(passwordOrMnemonic);
+        String contractAddress = "0x7ee71692e3B19064b9C594DD7e5689A6076450d8";
+//        String destinationAddress = "0x66F3CeCee567274014C6dA64c530af94FE0317Dd";
+//        BigInteger amount = BigInteger.valueOf(12);
+        BigDecimal amountDecimal = BigDecimal.valueOf(12);
 
         try {
-            log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
-            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
-            BigInteger gasLimit = getGasLimit(destinationAddress, amount);
+            // Get nonce
+            EthGetTransactionCount ethGetTransactionCount = web3.ethGetTransactionCount(credentials.getAddress(), DefaultBlockParameterName.LATEST).send();
+            BigInteger nonce = ethGetTransactionCount.getTransactionCount();
+
+            // Value to transfer
+            BigInteger balance2 = Convert.toWei(amountDecimal, Convert.Unit.ETHER).toBigInteger();
+
+            // Create transfer function
+            Function function = new Function("transfer", Arrays.asList(new Address(destinationAddress), new Uint256(balance2)), Collections.singletonList(new TypeReference<Bool>() {}));
+            String encodedFunction = FunctionEncoder.encode(function);
+
+//            BigInteger gasLimit = DefaultGasProvider.GAS_LIMIT;
+            BigInteger gasLimit = getGasLimit(destinationAddress, BigDecimal.valueOf(20));
             if (gasLimit == null) return null;
-            BigInteger gasPrice = transfer.requestCurrentGasPrice();
-            log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
 
-            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
-            TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
-            log.debug("InfuraWallet receipt = " + receipt);
-            return receipt.getTransactionHash();
+            // Get gas price
+            BigInteger gasPrice = web3.ethGasPrice().send().getGasPrice();
+//            BigInteger gasPrice = DefaultGasProvider.GAS_PRICE;
 
-        } catch (TimeoutException e) {
-            return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
+            System.out.println("Gas Price: " + gasPrice);
+            System.out.println("Amount: " + amount);
+            System.out.println("Amount: " + amountDecimal);
+
+            long chainId = 137;
+            RawTransaction rawTransaction = RawTransaction.createTransaction(nonce, gasPrice, BigInteger.valueOf(9_000_000), contractAddress, encodedFunction);
+            byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, chainId, credentials);
+            String hexValue = Numeric.toHexString(signedMessage);
+            EthSendTransaction transactionResponse = web3.ethSendRawTransaction(hexValue).sendAsync().get(20, TimeUnit.SECONDS);
+
+//            System.out.println(transactionResponse);
+
+            System.out.println(transactionResponse.getTransactionHash());
+
+            String transactionHash = transactionResponse.getTransactionHash();
+
+            return transactionHash;
+
         } catch (Exception e) {
-            log.error("Error sending coins.", e);
+            e.printStackTrace();
         }
 
         return null;
