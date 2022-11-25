@@ -169,19 +169,19 @@ public class ERC20Wallet implements IWallet{
 
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
 
-            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
-            BigInteger gasLimit = convertFromBigDecimal(BigDecimal.valueOf(0.00000000000003));
-            if (gasLimit == null) return null;
-            BigInteger gasPrice = transfer.requestCurrentGasPrice();
-            log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
+//            Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
+            BigInteger gasLimit = convertFromBigDecimal(BigDecimal.valueOf(0.0000000003));
+//            if (gasLimit == null) return null;
+//            BigInteger gasPrice = transfer.requestCurrentGasPrice();
+//            log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
+//
+//            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
+//            TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
+//            log.debug("InfuraWallet receipt = " + receipt);
+//            return receipt.getTransactionHash();
 
-            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
-            TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
-            log.debug("InfuraWallet receipt = " + receipt);
-            return receipt.getTransactionHash();
 
-
-//            BigInteger tokens = convertFromBigDecimal(amount);
+            BigInteger tokens = convertFromBigDecimal(amount);
 //            TransactionReceipt receipt = getContract(destinationAddress, tokens)
 //                    .transfer(destinationAddress, tokens)
 //                    .sendAsync()
@@ -193,24 +193,24 @@ public class ERC20Wallet implements IWallet{
 //          Java wrapper
 //            TransactionReceipt receipt = getContract(destinationAddress, tokens).transfer(destinationAddress, tokens).send();
 
-//            Function function = new Function(
-//                    "transfer",
-//                    Arrays.asList(
-//                            new Address(destinationAddress),
-//                            new Uint256(tokens)
-//                    ), Collections.emptyList()
-//            );
-//            String encodedFunction = FunctionEncoder.encode(function);
-//
-//            TransactionManager transactionManager = new RawTransactionManager(w, credentials, 137);
-//            String transactionHash = transactionManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, encodedFunction, BigInteger.ZERO).getTransactionHash();
-//
-//            CompletableFuture<EthGetTransactionReceipt> receipt = w.ethGetTransactionReceipt(transactionHash).sendAsync();
-//            EthGetTransactionReceipt receipt1 = receipt.get(10, TimeUnit.SECONDS);
-//
-//            log.debug("PolygonWallet receipt = " + receipt + "receipt1 = " + receipt1.getResult());
-//
-//            return receipt1.getTransactionReceipt().get().getTransactionHash();
+            Function function = new Function(
+                    "transfer",
+                    Arrays.asList(
+                            new Address(destinationAddress),
+                            new Uint256(tokens)
+                    ), Collections.emptyList()
+            );
+            String encodedFunction = FunctionEncoder.encode(function);
+
+            TransactionManager transactionManager = new RawTransactionManager(w, credentials, 137);
+            String transactionHash = transactionManager.sendTransaction(DefaultGasProvider.GAS_PRICE, gasLimit, contractAddress, encodedFunction, BigInteger.ZERO).getTransactionHash();
+
+            CompletableFuture<EthGetTransactionReceipt> receipt = w.ethGetTransactionReceipt(transactionHash).sendAsync();
+            EthGetTransactionReceipt receipt1 = receipt.get(10, TimeUnit.SECONDS);
+
+            log.debug("PolygonWallet receipt = " + receipt + "receipt1 = " + receipt1.getResult());
+
+            return receipt1.getTransactionReceipt().get().getTransactionHash();
 
 
         } catch (TimeoutException e) {
