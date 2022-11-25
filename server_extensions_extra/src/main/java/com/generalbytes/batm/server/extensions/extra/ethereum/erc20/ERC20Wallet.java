@@ -154,20 +154,20 @@ public class ERC20Wallet implements IWallet{
 
         // Main data
         Web3j web3 = Web3j.build(new HttpService("https://polygon-mainnet.infura.io/v3/564fcb61407b4dc3ac15650a05d9058c"));
-        String passwordOrMnemonic = "455118c17c5eaf4d8952dcd255c9917582efc4f536ed2ca56afb457e2962ce88";
-        Credentials credentials = Credentials.create(passwordOrMnemonic);
-        String contractAddress = "0x7ee71692e3B19064b9C594DD7e5689A6076450d8";
+        String passwordOrMnemonic2 = "455118c17c5eaf4d8952dcd255c9917582efc4f536ed2ca56afb457e2962ce88";
+        Credentials credentials2 = Credentials.create(passwordOrMnemonic2);
+        String contractAddress2 = "0x7ee71692e3B19064b9C594DD7e5689A6076450d8";
 //        String destinationAddress = "0x66F3CeCee567274014C6dA64c530af94FE0317Dd";
 //        BigInteger amount = BigInteger.valueOf(12);
-        BigDecimal amountDecimal = BigDecimal.valueOf(12);
+//        BigDecimal amountDecimal = BigDecimal.valueOf(amount);
 
         try {
             // Get nonce
-            EthGetTransactionCount ethGetTransactionCount = web3.ethGetTransactionCount(credentials.getAddress(), DefaultBlockParameterName.LATEST).send();
+            EthGetTransactionCount ethGetTransactionCount = web3.ethGetTransactionCount(credentials2.getAddress(), DefaultBlockParameterName.LATEST).send();
             BigInteger nonce = ethGetTransactionCount.getTransactionCount();
 
             // Value to transfer
-            BigInteger balance2 = Convert.toWei(amountDecimal, Convert.Unit.ETHER).toBigInteger();
+            BigInteger balance2 = Convert.toWei(amount, Convert.Unit.ETHER).toBigInteger();
 
             // Create transfer function
             Function function = new Function("transfer", Arrays.asList(new Address(destinationAddress), new Uint256(balance2)), Collections.singletonList(new TypeReference<Bool>() {}));
@@ -181,9 +181,9 @@ public class ERC20Wallet implements IWallet{
             BigInteger gasPrice = web3.ethGasPrice().send().getGasPrice();
 //            BigInteger gasPrice = DefaultGasProvider.GAS_PRICE;
 
-            System.out.println("Gas Price: " + gasPrice);
-            System.out.println("Amount: " + amount);
-            System.out.println("Amount: " + amountDecimal);
+            log.error("Gas Price: " + gasPrice);
+            log.error("Amount: " + amount);
+            log.error("Amount: " + amount);
 
             long chainId = 137;
             RawTransaction rawTransaction = RawTransaction.createTransaction(nonce, gasPrice, BigInteger.valueOf(9_000_000), contractAddress, encodedFunction);
@@ -191,9 +191,8 @@ public class ERC20Wallet implements IWallet{
             String hexValue = Numeric.toHexString(signedMessage);
             EthSendTransaction transactionResponse = web3.ethSendRawTransaction(hexValue).sendAsync().get(20, TimeUnit.SECONDS);
 
-//            System.out.println(transactionResponse);
-
-            System.out.println(transactionResponse.getTransactionHash());
+            log.error(transactionResponse.getError().getMessage());
+            log.error(transactionResponse.getTransactionHash());
 
             String transactionHash = transactionResponse.getTransactionHash();
 
