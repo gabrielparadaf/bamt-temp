@@ -171,7 +171,7 @@ public class ERC20Wallet implements IWallet{
 
             BigInteger tokens = convertFromBigDecimal(amount);
 
-            // Java wraper
+//          Java wrapper
 //            TransactionReceipt receipt = getContract(destinationAddress, tokens).transfer(destinationAddress, tokens).send();
 
             Function function = new Function(
@@ -187,11 +187,11 @@ public class ERC20Wallet implements IWallet{
             String transactionHash = transactionManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, encodedFunction, BigInteger.ZERO).getTransactionHash();
 
             CompletableFuture<EthGetTransactionReceipt> receipt = w.ethGetTransactionReceipt(transactionHash).sendAsync();
-            TransactionReceipt receipt1 = receipt.get(10, TimeUnit.SECONDS).getResult();
+            EthGetTransactionReceipt receipt1 = receipt.get(10, TimeUnit.SECONDS);
 
-            log.debug("PolygonWallet receipt = " + receipt + receipt1 + transactionHash);
+            log.debug("PolygonWallet receipt = " + receipt + "receipt1 = " + receipt1);
 
-            return transactionHash;
+            return receipt1.getTransactionReceipt().get().getTransactionHash();
 
 
         } catch (TimeoutException e) {
