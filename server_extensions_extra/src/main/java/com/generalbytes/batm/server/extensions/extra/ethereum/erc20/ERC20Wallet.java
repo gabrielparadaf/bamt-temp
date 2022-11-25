@@ -170,7 +170,7 @@ public class ERC20Wallet implements IWallet{
             log.info("ERC20 sending coins from " + credentials.getAddress() + " using smart contract " + contractAddress + " to: " + destinationAddress + " " + amount + " " + cryptoCurrency);
 
             Transfer transfer = new Transfer(w, new RawTransactionManager(w, credentials, 137));
-            BigInteger gasLimit = convertFromBigDecimal(BigDecimal.valueOf(0.00000000003));
+            BigInteger gasLimit = convertFromBigDecimal(BigDecimal.valueOf(0.00000000000003));
             if (gasLimit == null) return null;
             BigInteger gasPrice = transfer.requestCurrentGasPrice();
             log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
