@@ -189,9 +189,9 @@ public class ERC20Wallet implements IWallet{
             CompletableFuture<EthGetTransactionReceipt> receipt = w.ethGetTransactionReceipt(transactionHash).sendAsync();
             TransactionReceipt receipt1 = receipt.get(10, TimeUnit.SECONDS).getResult();
 
-            log.debug("InfuraWallet receipt = " + receipt1);
+            log.debug("PolygonWallet receipt = " + receipt + receipt1 + transactionHash);
 
-            return receipt1.getTransactionHash();
+            return transactionHash;
 
 
         } catch (TimeoutException e) {
