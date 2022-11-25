@@ -28,6 +28,7 @@ import org.web3j.abi.datatypes.Uint;
 import org.web3j.abi.datatypes.generated.Uint256;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.EthGetTransactionReceipt;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.request.Transaction;
@@ -185,35 +186,17 @@ public class ERC20Wallet implements IWallet{
             TransactionManager transactionManager = new RawTransactionManager(w, credentials, 137);
             String transactionHash = transactionManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT, contractAddress, encodedFunction, BigInteger.ZERO).getTransactionHash();
 
-            Optional<TransactionReceipt> transactionReceipt = w.ethGetTransactionReceipt(transactionHash).send().getTransactionReceipt();
+            CompletableFuture<EthGetTransactionReceipt> receipt = w.ethGetTransactionReceipt(transactionHash).sendAsync();
+            TransactionReceipt receipt1 = receipt.get(10, TimeUnit.SECONDS).getResult();
+
+            log.debug("InfuraWallet receipt = " + receipt1);
+
+            return receipt1.getTransactionHash();
 
 
-
-            //
-//            RawTransactionManager transfer = new RawTransactionManager(w, credentials, 137);
-//
-//            BigInteger gasLimit = getGasLimit(destinationAddress, amount);
-//            if (gasLimit == null) return null;
-//
-//            BigInteger gasPrice = transfer.requestCurrentGasPrice();
-//            log.info("InfuraWallet - gasPrice: {} gasLimit: {}", gasPrice, gasLimit);
-//
-//            CompletableFuture<TransactionReceipt> future = transfer.sendFunds(destinationAddress, amount, ETHER, gasPrice, gasLimit).sendAsync();
-//            TransactionReceipt receipt = future.get(10, TimeUnit.SECONDS);
-//            log.debug("InfuraWallet receipt = " + receipt);
-//
-//            return receipt.getTransactionHash();
-            
-//             BigInteger tokens = convertFromBigDecimal(amount);
-//             TransactionReceipt receipt = getContract(destinationAddress, tokens)
-//                 .transfer(destinationAddress, tokens)
-//                 .sendAsync()
-//                 .get(10, TimeUnit.SECONDS);
-//             log.debug("ERC20 receipt: {}", receipt);
-
-             return transactionHash;
-
-        }  catch (Exception e) {
+        } catch (TimeoutException e) {
+            return "info_in_future"; // the response is really slow, this can happen but the transaction can succeed anyway
+        } catch (Exception e) {
             log.error("Error sending coins.", e);
         }
         return null;
